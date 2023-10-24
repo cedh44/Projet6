@@ -4,25 +4,26 @@ USE mdd;
 
 CREATE TABLE `SUBJECTS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `title` VARCHAR(50),
+  `title` VARCHAR(50) NOT NULL,
   `content` VARCHAR(2000)
 );
 
 CREATE TABLE `USERS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `name` VARCHAR(40),
-  `email` VARCHAR(255),
-  `password` VARCHAR(255)
+  `email` VARCHAR(50) UNIQUE NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE `SUBSCRIPTIONS` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
   `user_id` INT, 
   `subject_id` INT
 );
 
 CREATE TABLE `POSTS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `title` VARCHAR(50),
+  `title` VARCHAR(50) NOT NULL,
   `content` VARCHAR(2000),
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `user_id` INT, 
@@ -31,7 +32,7 @@ CREATE TABLE `POSTS` (
 
 CREATE TABLE `COMMENTS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `comment` VARCHAR(2000),
+  `comment` VARCHAR(2000) NOT NULL,
   `user_id` INT, 
   `post_id` INT
 );
@@ -54,7 +55,7 @@ ALTER TABLE `COMMENTS` ADD FOREIGN KEY (`user_id`) REFERENCES `USERS` (`id`);
 
 -- quelques données par défaut
 INSERT INTO USERS (email, name, password) VALUES
-  ('toto@gmail.com', 'toto', '$2a$10$lylN8VKwYVDpJeyL0aP.Re3TriFYQHoQ4kGlNKsoA14lPu2xQREnK');
+  ('toto@gmail.com', 'toto', '123');
 
 INSERT INTO SUBJECTS (title, content) VALUES
   ('Angular', 'Le thème concerne Angular');
