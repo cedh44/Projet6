@@ -3,14 +3,12 @@ import {Injectable} from "@angular/core";
 import {LoginRequest} from "../interfaces/loginRequest.interface";
 import {Observable} from "rxjs";
 import {environment} from "../../../../environments/environment";
-
-class SessionInformation {
-}
+import {RegisterRequest} from "../interfaces/registerRequest.interface";
 
 @Injectable({
     providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
     private pathService = '/auth';
 
@@ -19,6 +17,10 @@ export class LoginService {
 
     public login(loginRequest: LoginRequest): Observable<any> {
         return this.httpClient.post<any>(`${environment.baseUrl}${this.pathService}/login`, loginRequest);
+    }
+
+    public register(registerRequest : RegisterRequest): Observable<any> {
+        return this.httpClient.post<any>(`${environment.baseUrl}${this.pathService}/register`, registerRequest)
     }
 
 }

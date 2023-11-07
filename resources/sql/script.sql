@@ -10,9 +10,9 @@ CREATE TABLE `SUBJECTS` (
 
 CREATE TABLE `USERS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `email` VARCHAR(50) UNIQUE NOT NULL,
-  `name` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(50) NOT NULL
+  `email` VARCHAR(255) UNIQUE NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE `SUBSCRIPTIONS` (
@@ -55,13 +55,15 @@ ALTER TABLE `COMMENTS` ADD FOREIGN KEY (`user_id`) REFERENCES `USERS` (`id`);
 
 -- quelques données par défaut
 INSERT INTO USERS (email, name, password) VALUES
-  ('toto@gmail.com', 'toto', '123');
+  ('toto@gmail.com', 'toto', '$2a$10$DBwf6qQCAzaForz8MoKpi.O3OtdSszfdsIvpilgwa9D7fbIw9Mm16');
 
 INSERT INTO SUBJECTS (title, content) VALUES
-  ('Angular', 'Le thème concerne Angular');
+  ('Angular', 'Le thème concerne Angular'),
+  ('Spring Boot', 'Le thème concerne Spring Boot');
 
 INSERT INTO SUBSCRIPTIONS (user_id, subject_id) VALUES
-  (1, 1);
+  (1, 1),
+  (1, 2);
 
 INSERT INTO POSTS (title, content, created_at, user_id, subject_id) VALUES
   ('Angular CLI', 'Angular CLI (Command Line Interface) est un outil facile d’utilisation qui permet d’initialiser, développer et maintenir des applications Angular. Son utilisation nous permettra un gain de temps et de  qualité sur notre projet.', NOW(), 1, 1);

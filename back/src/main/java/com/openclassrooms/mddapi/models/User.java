@@ -26,16 +26,16 @@ public class User {
     private Long id;
 
     @NonNull
-    @Size(max = 50)
+    @Size(max = 255)
     @Email
     private String email;
 
     @NonNull
-    @Size(max = 50)
+    @Size(max = 255)
     private String name;
 
     @NonNull
-    @Size(max = 50)
+    @Size(max = 255)
     private String password;
 
 }

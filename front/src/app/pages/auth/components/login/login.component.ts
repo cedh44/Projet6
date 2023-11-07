@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginRequest} from "../../interfaces/loginRequest.interface";
-import {LoginService} from "../../services/login.service";
+import {AuthService} from "../../services/auth.service";
 
 
 @Component({
@@ -11,32 +11,42 @@ import {LoginService} from "../../services/login.service";
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+    public onError = false;
 
-    userEmail!: string;
-    userPassword!: string;
-
-    /*public form = this.fb.group({
-        //Plus tard, mettre les validators
-    });*/
+    public form = this.formBuilder.group({
+        email: [
+            '',
+            [
+                Validators.required,
+                Validators.email
+            ]
+        ],
+        password: [
+            '',
+            [
+                Validators.required,
+                Validators.min(3)
+            ]
+        ]
+    });
 
     constructor(private router: Router,
-                private loginService: LoginService) {
+                private formBuilder: FormBuilder,
+                private authService: AuthService) {
     }
 
     ngOnInit(): void {
     }
 
     onLogin(): void {
-        //const loginRequest = this.form.value as LoginRequest;
-        const loginRequest:LoginRequest = {
-            email: this.userEmail,
-            password: this.userPassword};
-        this.loginService.login(loginRequest).subscribe({
+        const loginRequest = this.form.value as LoginRequest;
+        this.authService.login(loginRequest).subscribe({
             next: (response: any) => {
                 console.log('CONNEXION OK');
+                this.onError = false;
                 //this.router.navigate(['/login']);
             },
-            error: error => console.log('CONNEXION KO', error),
+            error: error => this.onError = true,
         });
     }
 
