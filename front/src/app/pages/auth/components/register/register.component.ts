@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
             '',
             [
                 Validators.required,
-                Validators.min(3)
+                Validators.minLength(3)
             ]
         ],
         email: [
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
             '',
             [
                 Validators.required,
-                Validators.min(3)
+                Validators.minLength(3)
             ]
         ]
     });

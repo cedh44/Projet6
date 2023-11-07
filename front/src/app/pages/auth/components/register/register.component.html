@@ -1,6 +1,6 @@
 <div class="form-card">
     <mat-card class="login-card">
-        <mat-card-title>Se connecter</mat-card-title>
+        <mat-card-title>S'inscrire</mat-card-title>
         <form [formGroup]="form" (submit)="onRegister()">
             <div class="form-group">
                 <mat-form-field>
@@ -20,7 +20,7 @@
                     <input matInput type="password" name="password" required formControlName="password">
                 </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Se connecter</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">S'inscrire</button>
             <p *ngIf="onError" class="error">An error occurred</p>
         </form>
     </mat-card>
