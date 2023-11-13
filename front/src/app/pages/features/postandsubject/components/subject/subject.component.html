@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="list">
+    <mat-card>
+        <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
+            <mat-card class="item" *ngFor="let subject of (subjects$ | async)" fxFlex>
+                <mat-card-header>
+                    <mat-card-title>{{ subject.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{ subject.content }}
+                    </p>
+                </mat-card-content>
+                <button *ngIf="!isSubscribedSubject(subject); else elseDisplayUnsubscribeButton" (click)="subscribe(subject.id)">S'abonner</button>
+                <ng-template #elseDisplayUnsubscribeButton>
+                    <button (click)="unSubscribe(subject.id)">Se désabonner</button>
+                </ng-template>
+
+                <p></p>
+            </mat-card>
+        </div>
+    </mat-card>
+</div>

@@ -55,18 +55,31 @@ ALTER TABLE `COMMENTS` ADD FOREIGN KEY (`user_id`) REFERENCES `USERS` (`id`);
 
 -- quelques données par défaut
 INSERT INTO USERS (email, name, password) VALUES
-  ('toto@gmail.com', 'toto', '$2a$10$DBwf6qQCAzaForz8MoKpi.O3OtdSszfdsIvpilgwa9D7fbIw9Mm16');
+  ('toto@gmail.com', 'toto', '$2a$10$DBwf6qQCAzaForz8MoKpi.O3OtdSszfdsIvpilgwa9D7fbIw9Mm16'),
+  ('tutu@gmail.com', 'tutu', '$2a$10$re1orBkEUUifaRDg9hXFROKd50LzBDGK/AyQkpa/V2u8UBbKJo992');
 
 INSERT INTO SUBJECTS (title, content) VALUES
   ('Angular', 'Le thème concerne Angular'),
-  ('Spring Boot', 'Le thème concerne Spring Boot');
+  ('Spring Boot', 'Le thème concerne Spring Boot'),
+  ('Git', 'Le thème concerne Git');
 
 INSERT INTO SUBSCRIPTIONS (user_id, subject_id) VALUES
   (1, 1),
-  (1, 2);
+  (1, 2),
+  (2, 1),
+  (2, 3);
 
 INSERT INTO POSTS (title, content, created_at, user_id, subject_id) VALUES
-  ('Angular CLI', 'Angular CLI (Command Line Interface) est un outil facile d’utilisation qui permet d’initialiser, développer et maintenir des applications Angular. Son utilisation nous permettra un gain de temps et de  qualité sur notre projet.', NOW(), 1, 1);
-
+  ('Angular CLI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 1),
+  ('Angular Material', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 2, 1),
+  ('JPA', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 2),
+  ('Lombok', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 2, 2),
+  ('MapStruct', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 2),
+  ('Comment faire un commit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 2, 3),
+  ('GIT : les commandes de base', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 3);
 INSERT INTO COMMENTS (comment, user_id, post_id) VALUES
-  ('Très intéressant', 1, 1);
+  ('Mon commentaire', 1, 1),
+  ('Mon commentaire', 1, 1),
+  ('Mon commentaire', 1, 2),
+  ('Mon commentaire', 1, 2),
+  ('Mon commentaire', 2, 3);
