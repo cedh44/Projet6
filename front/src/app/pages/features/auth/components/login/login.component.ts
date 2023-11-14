@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
                 console.log('CONNEXION OK');
                 this.onError = false;
                 this.sessionService.logIn(response)
-                this.router.navigate(['/subject']);
+                this.router.navigate(['/post']);
             },
             error: error => this.onError = true,
         });

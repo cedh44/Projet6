@@ -5,14 +5,20 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AuthModule} from "./pages/features/auth/auth.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SubjectComponent} from "./pages/features/postandsubject/components/subject/subject.component";
+import {SubjectListComponent} from "./pages/features/postandsubject/components/subjectList/subjectList.component";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "./pages/features/header/header.module";
+import {PostListComponent} from './pages/features/postandsubject/components/postList/postList.component';
+import {MatIconModule} from "@angular/material/icon";
+import { CreatepostComponent } from './pages/features/postandsubject/components/createpost/createpost.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, SubjectComponent],
+    declarations: [AppComponent, HomeComponent, SubjectListComponent, PostListComponent, CreatepostComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -21,7 +27,11 @@ import {HeaderModule} from "./pages/features/header/header.module";
         HttpClientModule,   //Nécessaire pour les appels au backend
         MatCardModule,
         MatSnackBarModule,
-        HeaderModule
+        HeaderModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

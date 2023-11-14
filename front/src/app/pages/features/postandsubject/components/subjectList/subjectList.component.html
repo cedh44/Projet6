@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="list">
     <mat-card>
-        <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
+        <div fxLayout="row wrap" fxLayout.lt-md="column">
             <mat-card class="item" *ngFor="let subject of (subjects$ | async)" fxFlex>
                 <mat-card-header>
                     <mat-card-title>{{ subject.title }}</mat-card-title>

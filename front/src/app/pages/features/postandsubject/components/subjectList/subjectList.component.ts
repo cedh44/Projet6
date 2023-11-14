@@ -2,30 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {SubjectService} from "../../services/subject.service";
 import {Subject} from "../../models/subject.models";
-import {UserSession} from "../../../../models/userSession.models";
 import {SessionService} from "../../../../services/session.service";
 
 @Component({
     selector: 'app-subjects',
-    templateUrl: './subject.component.html',
-    styleUrls: ['./subject.component.scss']
+    templateUrl: './subjectList.component.html',
+    styleUrls: ['./subjectList.component.scss']
 })
-export class SubjectComponent implements OnInit {
+export class SubjectListComponent implements OnInit {
 
-    //Appel au back pour récupérer tous les subjects
     public subjects$!: Observable<Subject[]>;
     public userId: number;
 
     constructor(private subjectService: SubjectService,
-                private sessionService: SessionService,
-                ) {
+                private sessionService: SessionService) {
         this.userId = this.sessionService.userSession!.id;
-    }
-
-    //On récupère les information de la session utilisateur
-    //TODO : à supprimer si inutilisé
-    get userSession(): UserSession | undefined {
-        return this.sessionService.userSession;
     }
 
     ngOnInit(): void {
@@ -42,7 +33,7 @@ export class SubjectComponent implements OnInit {
     }
 
     public subscribe(idSubject: number): void {
-        this.subjectService.subscribeSubject(idSubject, this.userId).subscribe( _=> {
+        this.subjectService.subscribeSubject(idSubject, this.userId).subscribe(_ => {
             //On réactualise la page des subjects
             this.subjects$ = this.subjectService.all();
         });

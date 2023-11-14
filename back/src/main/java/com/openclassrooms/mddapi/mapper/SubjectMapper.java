@@ -18,9 +18,12 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring", uses = {}, imports = {Arrays.class, Collectors.class, Subject.class, User.class, Collections.class, Optional.class})
 public interface SubjectMapper extends EntityMapper<SubjectDto, Subject> {
 
+    //Dans ce DTO, on retourne au back pour chaque subject : id, title, content et un tableau des ids des users
+
     @Mapping(target = "users", expression = "java(mapUsers(subject.getUsers()))")
     SubjectDto toDto(Subject subject);
 
+    //Récupérer les ids des users seulement
     default List<Long> mapUsers(List<User> users) {
         //Retourne les id des users (sans name, email et password)
         return Optional.ofNullable(users).orElseGet(Collections::emptyList).stream().map(u -> u.getId()).collect(Collectors.toList());

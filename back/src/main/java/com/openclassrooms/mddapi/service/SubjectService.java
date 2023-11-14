@@ -27,6 +27,11 @@ public class SubjectService {
         return this.subjectRepository.findAll();
     }
 
+    //Retourne la liste des subjects auxquels un user est abonné
+    public List<Subject> findSubjectsByUser(User user) {
+        return subjectRepository.findSubjectsByUsersIs(user);
+    }
+
     //Abonnement à un un subject
     public void subscribe(Long id, Long userId) {
         //Récupération du subject et du user en question

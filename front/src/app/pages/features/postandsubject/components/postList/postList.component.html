@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="list">
+    <div>
+        <button mat-raised-button color="primary" (click)="createPost()">Créer un article</button>
+    </div>
+    <div class="sort">
+        <button class="sortBy" (click)="sortBy()">Trier par
+            <mat-icon *ngIf="!ascend; else displayUp">arrow_downward</mat-icon>
+            <ng-template #displayUp>
+                <mat-icon>arrow_upward</mat-icon>
+            </ng-template>
+        </button>
+    </div>
+    <mat-card>
+        <div fxLayout="row wrap" fxLayout.lt-md="column">
+            <mat-card class="item" *ngFor="let post of postsList" fxFlex>
+                <mat-card-header>
+                    <mat-card-title>{{ post.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Date : {{ post.createdAt | date: 'longDate'}}</p>
+                    <p>Auteur : {{ post.user_name }}</p>
+                </mat-card-content>
+                <mat-card-content>
+                    <p>
+                        {{ post.content }}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-card>
+</div>
