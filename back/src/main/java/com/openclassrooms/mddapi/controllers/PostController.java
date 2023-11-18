@@ -1,14 +1,16 @@
 package com.openclassrooms.mddapi.controllers;
 
 
+import com.openclassrooms.mddapi.dto.PostDto;
 import com.openclassrooms.mddapi.mapper.PostMapper;
-import com.openclassrooms.mddapi.mapper.SubjectMapper;
 import com.openclassrooms.mddapi.models.Post;
+import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -38,4 +40,14 @@ public class PostController {
         }
     }
 
+    @PostMapping()
+    public ResponseEntity<?> create(@Valid @RequestBody PostDto postDto) {
+        //On récupère le post depuis le DTO
+        Post postToCreate = postMapper.toEntity(postDto);
+        //Création du post en BDD
+        Post postCreated = this.postService.create(postToCreate);
+        //Si post retourné non null alors OK, sinon BAD REQUEST
+        if (postCreated != null) return ResponseEntity.ok().body(new MessageResponse("Article créé"));
+        else return ResponseEntity.badRequest().build();
+    }
 }

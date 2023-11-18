@@ -34,15 +34,15 @@ export class SubjectListComponent implements OnInit {
 
     public subscribe(idSubject: number): void {
         this.subjectService.subscribeSubject(idSubject, this.userId).subscribe(_ => {
-            //On réactualise la page des subjects
-            this.subjects$ = this.subjectService.all();
+            //On rafraichit le composant
+            this.ngOnInit();
         });
     }
 
     public unSubscribe(idSubject: number): void {
         this.subjectService.unSubscribeSubject(idSubject, this.userId).subscribe(_ => {
-            //On réactualise la page des subjects
-            this.subjects$ = this.subjectService.all();
+            //On rafraichit le composant
+            this.ngOnInit();
         });
     }
 

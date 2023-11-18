@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="form-card">
+    <mat-card>
+        <mat-card-title>Créer un nouvel article</mat-card-title>
+        <form [formGroup]="postForm" (submit)="onCreatePost()">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Sélectionner un thème</mat-label>
+                    <mat-select name="subject_id" formControlName="subject_id">
+                        <mat-option *ngFor="let subject of subjects$ | async" [value]="subject.id">
+                            {{subject.title}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput type="title" name="title" placeholder="Titre de l'article" required
+                           formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <textarea matInput type="content" name="content" placeholder="Contenu de l'article" formControlName="content"></textarea>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Créer</button>
+            <p *ngIf="onError" class="error">An error occurred</p>
+        </form>
+    </mat-card>
+</div>

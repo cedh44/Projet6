@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 @Service
 public class PostService {
 
-    private final PostRepository postRepository;
+    @Autowired
+    PostRepository postRepository;
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -40,6 +41,10 @@ public class PostService {
         subjectsSubscribed.stream().map(subject -> postsToSubjectsSubscribed.addAll(postRepository.findAllBySubject(subject))).collect(Collectors.toList());
 
         return postsToSubjectsSubscribed;
+    }
+
+    public Post create(Post post) {
+        return this.postRepository.save(post);
     }
 
 }

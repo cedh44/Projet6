@@ -15,7 +15,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { CreatepostComponent } from './pages/features/postandsubject/components/createpost/createpost.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, SubjectListComponent, PostListComponent, CreatepostComponent],
@@ -31,7 +32,9 @@ import {ReactiveFormsModule} from "@angular/forms";
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSelectModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

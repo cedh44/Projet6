@@ -2,7 +2,7 @@ package com.openclassrooms.mddapi.mapper;
 
 import java.util.List;
 
-public interface EntityMapper<D, E> {
+public interface EntityMapperToDto<D, E> {
 
     D toDto(E entity);
 

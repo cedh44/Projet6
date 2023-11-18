@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
         const loginRequest = this.form.value as LoginRequest;
         this.authService.login(loginRequest).subscribe({
             next: (response: UserSession) => {
-                console.log('CONNEXION OK');
                 this.onError = false;
                 this.sessionService.logIn(response)
                 this.router.navigate(['/post']);

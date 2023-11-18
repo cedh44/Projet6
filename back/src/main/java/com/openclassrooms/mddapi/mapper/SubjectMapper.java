@@ -16,9 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Mapper(componentModel = "spring", uses = {}, imports = {Arrays.class, Collectors.class, Subject.class, User.class, Collections.class, Optional.class})
-public interface SubjectMapper extends EntityMapper<SubjectDto, Subject> {
-
-    //Dans ce DTO, on retourne au back pour chaque subject : id, title, content et un tableau des ids des users
+public interface SubjectMapper extends EntityMapperToDto<SubjectDto, Subject> {
 
     @Mapping(target = "users", expression = "java(mapUsers(subject.getUsers()))")
     SubjectDto toDto(Subject subject);

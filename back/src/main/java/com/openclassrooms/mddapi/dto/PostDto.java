@@ -1,17 +1,12 @@
 package com.openclassrooms.mddapi.dto;
 
-import com.openclassrooms.mddapi.models.Subject;
-import com.openclassrooms.mddapi.models.User;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,10 +22,14 @@ public class PostDto {
 
     private String content;
 
+    @CreatedDate
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     //Retourne le user auteur du post
+    private Long user_id;
     private String user_name;
 
+    private Long subject_id;
     private String subject_title;
 }

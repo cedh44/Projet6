@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {environment} from "../../../../../environments/environment";
 import {Post} from "../models/post.models";
+import {MessageResponse} from "../../../models/messageResponse.models";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,8 @@ export class PostService {
     return this.httpClient.get<Post[]>(`${environment.baseUrl}${this.pathService}/${userId}`);
   }
 
+  public createPost(post: Post): Observable<MessageResponse> {
+    return this.httpClient.post<MessageResponse>(`${environment.baseUrl}${this.pathService}`, post);
+  }
 
 }

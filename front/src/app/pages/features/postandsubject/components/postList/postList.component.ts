@@ -32,23 +32,15 @@ export class PostListComponent implements OnInit {
     }
 
     public sortBy(): void {
-        if (this.ascend) {
-            this.ascend = false;
-            this.postsList.sort((a, b) => {
-                return a.title.localeCompare(b.title);
-            });
-        } else {
-            this.ascend = true;
-            this.postsList.sort((a, b) => {
-                return b.title.localeCompare(a.title);
-            });
-        }
+        this.postsList.sort((a, b) => {
+            return this.ascend ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
+        });
+        this.ascend = !this.ascend;
     }
 
-    public createPost(): void{
+    public createPost(): void {
         this.router.navigateByUrl('/createPost');
     }
-
 
 
 }
