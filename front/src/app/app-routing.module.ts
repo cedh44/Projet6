@@ -1,9 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
-import {SubjectListComponent} from "./pages/features/postandsubject/components/subjectList/subjectList.component";
-import {PostListComponent} from "./pages/features/postandsubject/components/postList/postList.component";
-import {CreatepostComponent} from "./pages/features/postandsubject/components/createpost/createpost.component";
+import {SubjectListComponent} from "./pages/features/subject/components/subjectList/subjectList.component";
+import {PostListComponent} from "./pages/features/post/components/postList/postList.component";
+import {CreatepostComponent} from "./pages/features/post/components/createpost/createpost.component";
+import {ProfileComponent} from "./pages/features/profile/components/profile/profile.component";
+import {AuthGuard} from "./pages/guards/auth.guard";
 
 const routes: Routes = [
     {
@@ -15,19 +17,20 @@ const routes: Routes = [
         loadChildren: () => import('./pages/features/auth/auth.module').then(m => m.AuthModule)
     },
     {
+        path: 'post',
+        loadChildren: () => import('./pages/features/post/post.module').then(m => m.PostModule)
+    },
+    {
         title: 'Thèmes',
         path: 'subject',
-        component: SubjectListComponent
+        component: SubjectListComponent,
+        canActivate: [AuthGuard]
     },
     {
-        title: 'Articles',
-        path: 'post',
-        component: PostListComponent
-    },
-    {
-        title: "Créer un article",
-        path: 'createPost',
-        component: CreatepostComponent
+        title: "Profile",
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard]
     }
 ];
 

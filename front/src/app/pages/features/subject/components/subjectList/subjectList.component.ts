@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {SubjectService} from "../../services/subject.service";
+import {SubjectService} from "../../service/subject.service";
 import {Subject} from "../../models/subject.models";
 import {SessionService} from "../../../../services/session.service";
+import localeFr from '@angular/common/locales/fr';
+import {registerLocaleData} from "@angular/common";
+registerLocaleData(localeFr);
 
 @Component({
     selector: 'app-subjects',

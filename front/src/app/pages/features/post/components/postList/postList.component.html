@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="list">
     <div>
-        <button mat-raised-button color="primary" (click)="createPost()">Créer un article</button>
+        <button mat-raised-button color="primary" [routerLink]="['createPost']">Créer un article</button>
     </div>
     <div class="sort">
         <button class="sortBy" (click)="sortBy()">Trier par

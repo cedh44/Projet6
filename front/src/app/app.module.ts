@@ -5,21 +5,22 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AuthModule} from "./pages/features/auth/auth.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SubjectListComponent} from "./pages/features/postandsubject/components/subjectList/subjectList.component";
+import {SubjectListComponent} from "./pages/features/subject/components/subjectList/subjectList.component";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "./pages/features/header/header.module";
-import {PostListComponent} from './pages/features/postandsubject/components/postList/postList.component';
+import {PostListComponent} from './pages/features/post/components/postList/postList.component';
 import {MatIconModule} from "@angular/material/icon";
-import { CreatepostComponent } from './pages/features/postandsubject/components/createpost/createpost.component';
+import { CreatepostComponent } from './pages/features/post/components/createpost/createpost.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
+import {ProfileModule} from "./pages/features/profile/profile.module";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, SubjectListComponent, PostListComponent, CreatepostComponent],
+    declarations: [AppComponent, HomeComponent, SubjectListComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

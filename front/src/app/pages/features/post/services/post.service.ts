@@ -17,7 +17,7 @@ export class PostService {
 
   //Appel au back pour récupérer tous les posts du user suivant les subjects abonnés
   public allPostsBySubjectsSuscribed(userId: number): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${environment.baseUrl}${this.pathService}/${userId}`);
+    return this.httpClient.get<Post[]>(`${environment.baseUrl}${this.pathService}/user/${userId}`);
   }
 
   public createPost(post: Post): Observable<MessageResponse> {

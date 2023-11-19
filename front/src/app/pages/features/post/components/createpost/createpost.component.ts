@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {SubjectService} from "../../services/subject.service";
+import {SubjectService} from "../../../subject/service/subject.service";
 import {SessionService} from "../../../../services/session.service";
 import {Observable} from "rxjs";
-import {Subject} from "../../models/subject.models";
+import {Subject} from "../../../subject/models/subject.models";
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";

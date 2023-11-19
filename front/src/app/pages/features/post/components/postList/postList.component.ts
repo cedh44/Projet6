@@ -38,9 +38,4 @@ export class PostListComponent implements OnInit {
         this.ascend = !this.ascend;
     }
 
-    public createPost(): void {
-        this.router.navigateByUrl('/createPost');
-    }
-
-
 }
