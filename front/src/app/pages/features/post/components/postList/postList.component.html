@@ -22,7 +22,7 @@
                     <p>Auteur : {{ post.user_name }}</p>
                 </mat-card-content>
                 <mat-card-content>
-                    <p>
+                    <p (click)="postDetail(post.id)">
                         {{ post.content }}
                     </p>
                 </mat-card-content>

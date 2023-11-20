@@ -26,16 +26,22 @@ export class PostListComponent implements OnInit {
         this.postService.allPostsBySubjectsSuscribed(this.userId).subscribe(postListFromJson => {
             if (Array.isArray(postListFromJson)) {
                 this.postsList = postListFromJson;
+                //Tri par défaut
                 this.sortBy();
             }
         })
     }
 
     public sortBy(): void {
+        //Tri par défaut par ordre alphabétique sur le titre
         this.postsList.sort((a, b) => {
             return this.ascend ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
         });
         this.ascend = !this.ascend;
+    }
+
+    public postDetail(postId: number): void{
+        this.router.navigateByUrl(`post/postDetail/${postId}`);
     }
 
 }

@@ -2,9 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {CreatepostComponent} from "./components/createpost/createpost.component";
 import {PostListComponent} from "./components/postList/postList.component";
-import {AppRoutingModule} from "../../../app-routing.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "../header/header.module";
@@ -15,10 +12,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {PostRoutingModule} from "./post-routing.module";
 import localeFr from '@angular/common/locales/fr';
+import {PostdetailComponent} from './components/postdetail/postdetail.component';
+
 registerLocaleData(localeFr);
 
 @NgModule({
-    declarations: [CreatepostComponent, PostListComponent],
+    declarations: [CreatepostComponent, PostListComponent, PostdetailComponent],
     imports: [
         CommonModule,
         PostRoutingModule,

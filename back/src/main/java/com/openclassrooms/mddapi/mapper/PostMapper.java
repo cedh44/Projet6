@@ -5,6 +5,8 @@ import com.openclassrooms.mddapi.dto.PostDto;
 import com.openclassrooms.mddapi.models.Post;
 import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.models.User;
+import com.openclassrooms.mddapi.repository.SubjectRepository;
+import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.service.SubjectService;
 import com.openclassrooms.mddapi.service.UserService;
 import org.mapstruct.Mapper;
@@ -22,9 +24,9 @@ import java.util.stream.Collectors;
 public abstract class PostMapper implements EntityMapperToEntity<PostDto, Post>, EntityMapperToDto<PostDto, Post> {
 
     @Autowired
-    UserService userService;
+    SubjectRepository subjectRepository;
     @Autowired
-    SubjectService subjectService;
+    UserRepository userRepository;
 
     //Du front vers le back, on récupère le user ID (auteur) qu'il faut transformer en User
     //et le subject Id qu'il faut transformer en Subject
@@ -39,11 +41,11 @@ public abstract class PostMapper implements EntityMapperToEntity<PostDto, Post>,
     public abstract PostDto toDto(Post post);
 
     User getUserFromUserId(Long user_id) {
-        return this.userService.findById(user_id);
+        return this.userRepository.findById(user_id).orElse(null);
     }
 
     Subject getSubjectFromSubjectId(Long subject_id) {
-        return this.subjectService.findById(subject_id);
+        return this.subjectRepository.findById(subject_id).orElse(null);
     }
 }
 

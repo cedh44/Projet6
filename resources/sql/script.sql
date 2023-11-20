@@ -32,7 +32,7 @@ CREATE TABLE `POSTS` (
 
 CREATE TABLE `COMMENTS` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
-  `comment` VARCHAR(2000) NOT NULL,
+  `content` VARCHAR(2000) NOT NULL,
   `user_id` INT, 
   `post_id` INT
 );
@@ -77,9 +77,9 @@ INSERT INTO POSTS (title, content, created_at, user_id, subject_id) VALUES
   ('MapStruct', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 2),
   ('Comment faire un commit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 2, 3),
   ('GIT : les commandes de base', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', NOW(), 1, 3);
-INSERT INTO COMMENTS (comment, user_id, post_id) VALUES
-  ('Mon commentaire', 1, 1),
-  ('Mon commentaire', 1, 1),
-  ('Mon commentaire', 1, 2),
-  ('Mon commentaire', 1, 2),
-  ('Mon commentaire', 2, 3);
+INSERT INTO COMMENTS (content, user_id, post_id) VALUES
+  ('Mon commentaire id1', 1, 1),
+  ('Mon commentaire id2', 2, 1),
+  ('Mon commentaire id3', 1, 2),
+  ('Mon commentaire id4', 2, 2),
+  ('Mon commentaire id5', 2, 3);

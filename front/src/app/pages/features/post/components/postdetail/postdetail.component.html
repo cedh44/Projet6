@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div *ngIf="post$ | async as post">
+    <mat-card class="item">
+        <button mat-icon-button (click)="back()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <mat-card-header>
+            <mat-card-title>{{ post.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Date : {{ post.createdAt | date: 'longDate'}}</p>
+            <p>Auteur : {{ post.user_name }}</p>
+            <p>Thème : {{ post.subject_title }}</p>
+        </mat-card-content>
+        <mat-card-content>
+            <p>
+                {{ post.content }}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>Commentaires</div>
+<div fxLayout="row wrap" fxLayout.lt-md="column">
+    <mat-card class="item" *ngFor="let comment of (commentList$ | async)" fxFlex>
+        <mat-card-content>
+            <p>
+                {{ comment.user_name }} {{ comment.content }}
+            </p>
+        </mat-card-content>
+        <br>
+    </mat-card>
+</div>
+<div class="form-card">
+    <mat-card>
+        <form [formGroup]="commentForm" (submit)="onCreateComment()">
+            <div class="form-group">
+                <mat-form-field>
+                    <textarea matInput type="content" name="content" placeholder="contenu du commentaire"
+                              formControlName="content"></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">Send</button>
+                <p *ngIf="onError" class="error">An error occurred</p>
+            </div>
+        </form>
+    </mat-card>
+</div>

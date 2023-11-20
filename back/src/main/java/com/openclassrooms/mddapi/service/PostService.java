@@ -4,6 +4,7 @@ import com.openclassrooms.mddapi.models.Post;
 import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.PostRepository;
+import com.openclassrooms.mddapi.repository.SubjectRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,7 @@ public class PostService {
     @Autowired
     UserRepository userRepository;
     @Autowired
-    SubjectService subjectService;
-    @Autowired
-    UserService userService;
+    SubjectRepository subjectRepository;
 
     public PostService(PostRepository postRepository) {
         this.postRepository = postRepository;
@@ -32,19 +31,14 @@ public class PostService {
     public List<Post> findPostsToSubjectsSubscribed(Long userId) {
         List<Post> postsToSubjectsSubscribed = new ArrayList<>();
         //Récupérer le user
-        User userFound = userService.findById(userId);
+        User userFound = this.userRepository.findById(userId).orElse(null);
 
         //Récupérer les subjects du user
-        List<Subject> subjectsSubscribed = subjectService.findSubjectsByUser(userFound);
+        List<Subject> subjectsSubscribed = subjectRepository.findSubjectsByUsersIs(userFound);
 
         //Récupérer les posts par subject
         subjectsSubscribed.stream().map(subject -> postsToSubjectsSubscribed.addAll(postRepository.findAllBySubject(subject))).collect(Collectors.toList());
 
         return postsToSubjectsSubscribed;
     }
-
-    public Post create(Post post) {
-        return this.postRepository.save(post);
-    }
-
 }

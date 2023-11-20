@@ -20,8 +20,14 @@ export class PostService {
     return this.httpClient.get<Post[]>(`${environment.baseUrl}${this.pathService}/user/${userId}`);
   }
 
+  //Appel au back pour la création d'un post
   public createPost(post: Post): Observable<MessageResponse> {
     return this.httpClient.post<MessageResponse>(`${environment.baseUrl}${this.pathService}`, post);
+  }
+
+  //Appel au back pour récupérer un post par son id
+  public postById(postId: number): Observable<Post> {
+    return this.httpClient.get<Post>(`${environment.baseUrl}${this.pathService}/${postId}`);
   }
 
 }

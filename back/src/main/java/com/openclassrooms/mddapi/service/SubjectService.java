@@ -16,24 +16,10 @@ public class SubjectService {
 
     @Autowired
     UserRepository userRepository;
-    private final SubjectRepository subjectRepository;
+    SubjectRepository subjectRepository;
 
     public SubjectService(SubjectRepository subjectRepository) {
         this.subjectRepository = subjectRepository;
-    }
-
-    //Retourne une liste avec tous les subjects (utilisation du findAll hérité de JpaRepository)
-    public List<Subject> findAll() {
-        return this.subjectRepository.findAll();
-    }
-
-    public Subject findById(Long id) {
-        return this.subjectRepository.findById(id).orElse(null);
-    }
-
-    //Retourne la liste des subjects auxquels un user est abonné
-    public List<Subject> findSubjectsByUser(User user) {
-        return subjectRepository.findSubjectsByUsersIs(user);
     }
 
     //Abonnement à un un subject

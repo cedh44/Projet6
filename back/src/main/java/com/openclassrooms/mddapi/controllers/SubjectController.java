@@ -3,6 +3,7 @@ package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.mapper.SubjectMapper;
 import com.openclassrooms.mddapi.models.Subject;
+import com.openclassrooms.mddapi.repository.SubjectRepository;
 import com.openclassrooms.mddapi.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +16,22 @@ import java.util.List;
 @RequestMapping("/api/subject")
 public class SubjectController {
     @Autowired
-    private SubjectService subjectService;
-
-    //TODO : à supprimer si je pars sur le choix mapstruct
-    //@Autowired
-    //private ModelMapper modelMapper;
-
+    SubjectService subjectService;
     @Autowired
-    private SubjectMapper subjectMapper;
+    SubjectMapper subjectMapper;
+    @Autowired
+    SubjectRepository subjectRepository;
 
 
     @GetMapping
     public ResponseEntity<?> findAll() {
-        List<Subject> subjects = subjectService.findAll();
+        //On récupére l'ensemble des subjects
+        List<Subject> subjects = this.subjectRepository.findAll();
+        //On retourne OK et la liste des subjects au format Dto
         return ResponseEntity.ok().body(subjectMapper.toDto(subjects));
-        //return ResponseEntity.ok().body(convertToDtoList(subjects));
     }
 
+    //Abonnement à un thème (subject)
     @PostMapping("{id}/subscribe/{userId}")
     public ResponseEntity<?> subscribe(@PathVariable("id") String id, @PathVariable("userId") String userId) {
         try {
@@ -44,6 +44,7 @@ public class SubjectController {
         }
     }
 
+    //Désabonnement à un thème (subject)
     @PostMapping("{id}/unsubscribe/{userId}")
     public ResponseEntity<?> unSubscribe(@PathVariable("id") String id, @PathVariable("userId") String userId) {
         try {
@@ -56,18 +57,4 @@ public class SubjectController {
         }
     }
 
-
-    //TODO : à supprimer si je pars sur le choix mapstruct
-/*    private SubjectDto convertToDto(Subject subject) {
-        SubjectDto subjectDto = modelMapper.map(subject, SubjectDto.class);
-        return subjectDto;
-    }
-
-    private List<SubjectDto> convertToDtoList(List<Subject> subjects) {
-        //TODO : Ne renvoyer que les id des users
-        List<SubjectDto> subjectsDto = subjects.stream().map(
-                subject -> modelMapper.map(subject, SubjectDto.class))
-                .collect(Collectors.toList());
-        return subjectsDto;
-    }*/
 }

@@ -26,10 +26,12 @@ public class Comment {
     private String content;
 
     @OneToOne
+    @NonNull
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     @OneToOne
+    @NonNull
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 }

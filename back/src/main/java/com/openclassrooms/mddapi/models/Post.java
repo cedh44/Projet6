@@ -35,10 +35,12 @@ public class Post {
     private LocalDateTime createdAt;
 
     @OneToOne
+    @NonNull
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     @OneToOne
+    @NonNull
     @JoinColumn(name = "subject_id", referencedColumnName = "id")
     private Subject subject;
 }
