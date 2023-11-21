@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SubjectListComponent} from '../../core/components/subject-list/./subject-list.component';
 import {MatCardModule} from "@angular/material/card";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../../../app-routing.module";
@@ -14,7 +13,6 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {SubjectRootComponent} from "./components/subject-root/subject-root.component";
-import {AppModule} from "../../../app.module";
 import {CoreModule} from "../../core/core.module";
 
 
@@ -22,8 +20,7 @@ import {CoreModule} from "../../core/core.module";
     declarations: [
         SubjectRootComponent
     ],
-    exports: [
-    ],
+    exports: [],
     imports: [
         CommonModule,
         MatCardModule,

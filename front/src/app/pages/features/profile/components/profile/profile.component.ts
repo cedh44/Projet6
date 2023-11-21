@@ -4,8 +4,6 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {ProfileService} from "../../service/profile.service";
-import {Post} from "../../../post/models/post.models";
-import {MessageResponse} from "../../../../core/models/messageResponse.models";
 import {User} from "../../../../core/models/user.models";
 
 @Component({
@@ -37,7 +35,7 @@ export class ProfileComponent implements OnInit {
                 this.onError = false;
                 this.sessionService.userSession!.name = userUpdated.name;
                 this.sessionService.userSession!.email = userUpdated.email;
-                this.matSnackBar.open("Mise à jour effectuée", 'Close', { duration: 3000 });
+                this.matSnackBar.open("Mise à jour effectuée", 'Close', {duration: 3000});
                 this.router.navigate(['/post']);
             },
             error: error => this.onError = true,
