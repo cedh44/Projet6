@@ -23,7 +23,6 @@ public class UserDto {
     @Size(max = 255)
     private String name;
 
-    @NonNull
     @JsonIgnore //Ignoré dans le json vers le front
     @Size(max = 255)
     private String password;

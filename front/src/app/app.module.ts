@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -10,15 +10,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "./pages/features/header/header.module";
-import {PostListComponent} from './pages/features/post/components/postList/postList.component';
 import {MatIconModule} from "@angular/material/icon";
-import { CreatepostComponent } from './pages/features/post/components/createpost/createpost.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {ProfileModule} from "./pages/features/profile/profile.module";
-
+import {SubjectModule} from "./pages/features/subject/subject.module";
+import * as fr from '@angular/common/locales/fr';
+import {registerLocaleData} from "@angular/common";
 @NgModule({
     declarations: [AppComponent, HomeComponent, SubjectListComponent],
     imports: [
@@ -35,10 +35,15 @@ import {ProfileModule} from "./pages/features/profile/profile.module";
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        FormsModule
+        FormsModule,
+        SubjectModule
     ],
-    providers: [],
+    providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
+    exports: [    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    constructor() {
+        registerLocaleData(fr.default);
+    }
 }
