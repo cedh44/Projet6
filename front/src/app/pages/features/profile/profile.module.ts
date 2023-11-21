@@ -22,7 +22,6 @@ import {SubjectModule} from "../subject/subject.module";
         MatFormFieldModule,
         MatInputModule,
         ReactiveFormsModule,
-        AppModule,
         SubjectModule
     ]
 })

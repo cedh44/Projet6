@@ -1,5 +1,8 @@
 <div class="form-card">
     <mat-card class="login-card">
+        <button mat-icon-button (click)="back()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
         <mat-card-title>Se connecter</mat-card-title>
         <form [formGroup]="form" (submit)="onLogin()">
             <div class="form-group">

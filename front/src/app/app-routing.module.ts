@@ -2,10 +2,9 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
 import {SubjectListComponent} from "./pages/features/subject/components/subjectList/subjectList.component";
-import {PostListComponent} from "./pages/features/post/components/postList/postList.component";
-import {CreatepostComponent} from "./pages/features/post/components/createpost/createpost.component";
 import {ProfileComponent} from "./pages/features/profile/components/profile/profile.component";
 import {AuthGuard} from "./pages/guards/auth.guard";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
     {
@@ -18,6 +17,7 @@ const routes: Routes = [
     },
     {
         path: 'post',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./pages/features/post/post.module').then(m => m.PostModule)
     },
     {
@@ -31,7 +31,9 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         canActivate: [AuthGuard]
-    }
+    },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '404' }
 ];
 
 @NgModule({

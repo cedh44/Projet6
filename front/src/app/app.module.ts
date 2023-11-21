@@ -5,7 +5,6 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AuthModule} from "./pages/features/auth/auth.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SubjectListComponent} from "./pages/features/subject/components/subjectList/subjectList.component";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -19,8 +18,10 @@ import {ProfileModule} from "./pages/features/profile/profile.module";
 import {SubjectModule} from "./pages/features/subject/subject.module";
 import * as fr from '@angular/common/locales/fr';
 import {registerLocaleData} from "@angular/common";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
+
 @NgModule({
-    declarations: [AppComponent, HomeComponent, SubjectListComponent],
+    declarations: [AppComponent, HomeComponent, NotFoundComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -36,10 +37,11 @@ import {registerLocaleData} from "@angular/common";
         ReactiveFormsModule,
         MatSelectModule,
         FormsModule,
+        ProfileModule,
         SubjectModule
     ],
     providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
-    exports: [    ],
+    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

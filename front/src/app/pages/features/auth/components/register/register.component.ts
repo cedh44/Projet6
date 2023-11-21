@@ -56,7 +56,9 @@ export class RegisterComponent implements OnInit {
             },
             error: error => this.onError = true,
         });
-        // fAIRE LE SNACKBAR AUSSI
+    }
 
+    public back() {
+        window.history.back();
     }
 }

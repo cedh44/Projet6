@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from './components/register/register.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
     declarations: [LoginComponent, RegisterComponent],
@@ -22,7 +23,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
         MatFormFieldModule, //Angular Material
         MatInputModule,     //Angular Material
         MatSnackBarModule,  //Snack Bar pour affichage de messages type popup
-        ReactiveFormsModule //Pour le form builder
+        ReactiveFormsModule,
+        MatIconModule,
+        //Pour le form builder
     ]
 })
 export class AuthModule {

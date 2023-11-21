@@ -53,4 +53,8 @@ export class LoginComponent implements OnInit {
         });
     }
 
+    public back() {
+        window.history.back();
+    }
+
 }
