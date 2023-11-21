@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../../services/post.service";
-import {SessionService} from "../../../../services/session.service";
+import {SessionService} from "../../../../core/services/session.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CommentService} from "../../services/comment.service";
 import {FormBuilder, Validators} from "@angular/forms";
@@ -8,14 +8,14 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Post} from "../../models/post.models";
 import {Comment} from "../../models/comment.models";
 import {Observable} from "rxjs";
-import {MessageResponse} from "../../../../models/messageResponse.models";
+import {MessageResponse} from "../../../../core/models/messageResponse.models";
 
 @Component({
     selector: 'app-post-detail',
-    templateUrl: './postdetail.component.html',
-    styleUrls: ['./postdetail.component.scss']
+    templateUrl: './post-detail.component.html',
+    styleUrls: ['./post-detail.component.scss']
 })
-export class PostdetailComponent implements OnInit {
+export class PostDetailComponent implements OnInit {
     public post$!: Observable<Post>;
     public commentList$!: Observable<Comment[]>;
     private postId!: number | undefined;
@@ -61,7 +61,9 @@ export class PostdetailComponent implements OnInit {
                 this.matSnackBar.open(response.message, 'Close', { duration: 3000 });
                 //Rechargement de la page suite à l'enregistrement du commentaire
                 this.ngOnInit();
-                this.commentForm?.setValue({content:''});
+                this.commentForm?.reset();
+                //this.commentForm?.setValue({content:' '});
+
             },
             error: error => this.onError = true,
         });

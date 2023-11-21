@@ -8,6 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AppModule} from "../../../app.module";
 import {SubjectModule} from "../subject/subject.module";
+import {CoreModule} from "../../core/core.module";
 
 
 
@@ -22,7 +23,8 @@ import {SubjectModule} from "../subject/subject.module";
         MatFormFieldModule,
         MatInputModule,
         ReactiveFormsModule,
-        SubjectModule
+        SubjectModule,
+        CoreModule
     ]
 })
 export class ProfileModule { }

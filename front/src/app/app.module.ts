@@ -19,6 +19,7 @@ import {SubjectModule} from "./pages/features/subject/subject.module";
 import * as fr from '@angular/common/locales/fr';
 import {registerLocaleData} from "@angular/common";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
+import {CoreModule} from "./pages/core/core.module";
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, NotFoundComponent],
@@ -38,7 +39,8 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
         MatSelectModule,
         FormsModule,
         ProfileModule,
-        SubjectModule
+        SubjectModule,
+        CoreModule
     ],
     providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
     exports: [],

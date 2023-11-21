@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Post} from "../../models/post.models";
-import {SessionService} from "../../../../services/session.service";
+import {SessionService} from "../../../../core/services/session.service";
 import {PostService} from "../../services/post.service";
 import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-post',
-    templateUrl: './postList.component.html',
-    styleUrls: ['./postList.component.scss']
+    templateUrl: './post-list.component.html',
+    styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
 

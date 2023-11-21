@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from './components/register/register.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
     declarations: [LoginComponent, RegisterComponent],
@@ -25,6 +26,7 @@ import {MatIconModule} from "@angular/material/icon";
         MatSnackBarModule,  //Snack Bar pour affichage de messages type popup
         ReactiveFormsModule,
         MatIconModule,
+        MatButtonModule,
         //Pour le form builder
     ]
 })

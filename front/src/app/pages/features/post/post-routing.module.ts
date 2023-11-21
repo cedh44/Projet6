@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {PostListComponent} from "./components/postList/postList.component";
-import {CreatepostComponent} from "./components/createpost/createpost.component";
-import {AuthGuard} from "../../guards/auth.guard";
-import {PostdetailComponent} from "./components/postdetail/postdetail.component";
+import {PostListComponent} from "./components/post-list/post-list.component";
+import {CreatePostComponent} from "./components/create-post/create-post.component";
+import {AuthGuard} from "../../core/guards/auth.guard";
+import {PostDetailComponent} from "./components/post-detail/post-detail.component";
 
 const routes: Routes = [
     {
         title: 'Créer un article',
         path: 'createPost',
-        component: CreatepostComponent,
+        component: CreatePostComponent,
         canActivate: [AuthGuard]
     },
     {
         title: 'Détail de l\'article',
         path: 'postDetail/:postId',
-        component: PostdetailComponent,
+        component: PostDetailComponent,
         canActivate: [AuthGuard]
     },
     {

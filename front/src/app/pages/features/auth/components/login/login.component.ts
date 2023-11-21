@@ -3,8 +3,8 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginRequest} from "../../interfaces/loginRequest.interface";
 import {AuthService} from "../../services/auth.service";
-import {SessionService} from "../../../../services/session.service";
-import {UserSession} from "../../../../models/userSession.models";
+import {SessionService} from "../../../../core/services/session.service";
+import {UserSession} from "../../../../core/models/userSession.models";
 
 
 @Component({

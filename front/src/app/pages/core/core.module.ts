@@ -1,33 +1,36 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {PostListComponent} from "./components/post-list/post-list.component";
+import {SubjectListComponent} from "./components/subject-list/subject-list.component";
 import {MatCardModule} from "@angular/material/card";
+import {BrowserModule} from "@angular/platform-browser";
+import {AppRoutingModule} from "../../app-routing.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {HeaderModule} from "../header/header.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
-import {PostRoutingModule} from "./post-routing.module";
-import {CreatePostComponent} from "./components/create-post/create-post.component";
-import {PostDetailComponent} from "./components/post-detail/post-detail.component";
 
 @NgModule({
-    declarations: [PostListComponent, CreatePostComponent, PostDetailComponent],
+    declarations: [SubjectListComponent],
     imports: [
         CommonModule,
-        PostRoutingModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,   //Nécessaire pour les appels au backend
         MatCardModule,
         MatSnackBarModule,
-        HeaderModule,
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        FormsModule
-    ]
+        FormsModule,
+    ],
+    exports: [SubjectListComponent]
 })
-export class PostModule {
+export class CoreModule {
 }

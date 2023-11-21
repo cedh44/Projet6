@@ -1,9 +1,9 @@
 <div class="form-card">
     <mat-card class="login-card">
-        <button mat-icon-button (click)="back()">
+        <button mat-icon-button="" (click)="back()">
             <mat-icon>arrow_back</mat-icon>
         </button>
-        <mat-card-title>S'inscrire</mat-card-title>
+        <mat-card-title>Inscription</mat-card-title>
         <form [formGroup]="form" (submit)="onRegister()">
             <div class="form-group">
                 <mat-form-field>
@@ -23,7 +23,7 @@
                     <input matInput type="password" name="password" required formControlName="password">
                 </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">S'inscrire</button>
+            <button class="button-mdd" mat-raised-button type="submit" [disabled]="form.invalid">S'inscrire</button>
             <p *ngIf="onError" class="error">An error occurred</p>
         </form>
     </mat-card>

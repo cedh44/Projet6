@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./pages/features/auth/services/auth.service";
 import {Router} from "@angular/router";
-import {SessionService} from "./pages/services/session.service";
+import {SessionService} from "./pages/core/services/session.service";
 import {Observable} from "rxjs";
 
 @Component({

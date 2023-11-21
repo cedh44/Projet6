@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Subject} from "../../models/subject.models";
-import {SubjectService} from "../../service/subject.service";
-import {SessionService} from "../../../../services/session.service";
+import {SubjectService} from "../../services/subject.service";
+import {SessionService} from "../../services/session.service";
 
 @Component({
-  selector: 'app-subject-list-template',
-  templateUrl: './subject-list-template.component.html',
-  styleUrls: ['./subject-list-template.component.scss']
+  selector: 'app-subject-list',
+  templateUrl: './subject-list.component.html',
+  styleUrls: ['./subject-list.component.scss']
 })
-export class SubjectListTemplateComponent implements OnInit {
+export class SubjectListComponent implements OnInit {
 
   @Input() fromSubjectComponent!: boolean;
   public subjects$!: Observable<Subject[]>;

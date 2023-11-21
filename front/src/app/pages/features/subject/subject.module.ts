@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SubjectListTemplateComponent} from './components/subject-list-template/subject-list-template.component';
+import {SubjectListComponent} from '../../core/components/subject-list/./subject-list.component';
 import {MatCardModule} from "@angular/material/card";
-import {SubjectListComponent} from "./components/subjectList/subjectList.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../../../app-routing.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -14,14 +13,16 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
+import {SubjectRootComponent} from "./components/subject-root/subject-root.component";
+import {AppModule} from "../../../app.module";
+import {CoreModule} from "../../core/core.module";
 
 
 @NgModule({
     declarations: [
-        SubjectListTemplateComponent, SubjectListComponent
+        SubjectRootComponent
     ],
     exports: [
-        SubjectListTemplateComponent
     ],
     imports: [
         CommonModule,
@@ -38,7 +39,8 @@ import {MatSelectModule} from "@angular/material/select";
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        FormsModule
+        FormsModule,
+        CoreModule
     ]
 })
 export class SubjectModule {

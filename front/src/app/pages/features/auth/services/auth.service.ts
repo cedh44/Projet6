@@ -4,8 +4,8 @@ import {LoginRequest} from "../interfaces/loginRequest.interface";
 import {Observable} from "rxjs";
 import {environment} from "../../../../../environments/environment";
 import {RegisterRequest} from "../interfaces/registerRequest.interface";
-import {UserSession} from "../../../models/userSession.models";
-import {MessageResponse} from "../../../models/messageResponse.models";
+import {UserSession} from "../../../core/models/userSession.models";
+import {MessageResponse} from "../../../core/models/messageResponse.models";
 
 @Injectable({
     providedIn: 'root'

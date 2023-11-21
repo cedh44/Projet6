@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
     onRegister(): void {
         const registerRequest = this.form.value as RegisterRequest;
         this.authService.register(registerRequest).subscribe({
-            next: (response: any) => {
+            next: (_: any) => {
                 this.onError = false;
                 this.matSnackBar.open("utilisateur créé", 'Close', { duration: 3000 });
                 this.router.navigate(['/login']);

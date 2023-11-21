@@ -2,7 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {environment} from "../../../../../environments/environment";
-import {User} from "../../../models/user.models";
+import {User} from "../../../core/models/user.models";
 
 @Injectable({
     providedIn: 'root'
@@ -14,8 +14,8 @@ export class ProfileService {
     constructor(private httpClient: HttpClient) {
     }
 
-    public updateProfile(userToUpdate: User): Observable<User> {
-        return this.httpClient.post<User>(`${environment.baseUrl}${this.pathService}/`, userToUpdate);
+    public updateProfile(id: number, userToUpdate: User): Observable<User> {
+        return this.httpClient.put<User>(`${environment.baseUrl}${this.pathService}/${id}`, userToUpdate);
     }
 
 

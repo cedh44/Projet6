@@ -14,6 +14,7 @@ public class UserService {
     }
 
     public User updateUser(UserDto userDto) {
+
         //Récupérer le user à mettre à jour par son Id
         User userFound = userRepository.findById(userDto.getId()).orElse(null);
         //Mettre à jour les données

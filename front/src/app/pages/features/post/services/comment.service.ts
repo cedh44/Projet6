@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from "../../../../../environments/environment";
-import {MessageResponse} from "../../../models/messageResponse.models";
+import {MessageResponse} from "../../../core/models/messageResponse.models";
 import {Comment} from "../models/comment.models";
 
 @Injectable({

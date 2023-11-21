@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubjectListTemplateComponent } from './subject-list-template.component';
+import { SubjectListComponent } from './subject-list.component';
 
 describe('SubjectListTemplateComponent', () => {
-  let component: SubjectListTemplateComponent;
-  let fixture: ComponentFixture<SubjectListTemplateComponent>;
+  let component: SubjectListComponent;
+  let fixture: ComponentFixture<SubjectListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubjectListTemplateComponent ]
+      declarations: [ SubjectListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SubjectListTemplateComponent);
+    fixture = TestBed.createComponent(SubjectListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {SessionService} from "../../../../services/session.service";
+import {SessionService} from "../../../../core/services/session.service";
 import {FormBuilder, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {ProfileService} from "../../service/profile.service";
 import {Post} from "../../../post/models/post.models";
-import {MessageResponse} from "../../../../models/messageResponse.models";
-import {User} from "../../../../models/user.models";
+import {MessageResponse} from "../../../../core/models/messageResponse.models";
+import {User} from "../../../../core/models/user.models";
 
 @Component({
     selector: 'app-profile',
@@ -32,8 +32,7 @@ export class ProfileComponent implements OnInit {
 
     onUpdateProfile(): void {
         const userToUpdate = this.profileForm?.value as User;
-        userToUpdate.id = this.sessionService.userSession!.id;
-        this.profileService.updateProfile(userToUpdate).subscribe({
+        this.profileService.updateProfile(this.sessionService.userSession!.id, userToUpdate).subscribe({
             next: (userUpdated: User) => {
                 this.onError = false;
                 this.sessionService.userSession!.name = userUpdated.name;

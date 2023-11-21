@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
-import {SubjectListComponent} from "./pages/features/subject/components/subjectList/subjectList.component";
+import {SubjectRootComponent} from "./pages/features/subject/components/subject-root/subject-root.component";
 import {ProfileComponent} from "./pages/features/profile/components/profile/profile.component";
-import {AuthGuard} from "./pages/guards/auth.guard";
+import {AuthGuard} from "./pages/core/guards/auth.guard";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
     {
         title: 'Thèmes',
         path: 'subject',
-        component: SubjectListComponent,
+        component: SubjectRootComponent,
         canActivate: [AuthGuard]
     },
     {

@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {SubjectService} from "../../../subject/service/subject.service";
-import {SessionService} from "../../../../services/session.service";
+import {SubjectService} from "../../../../core/services/subject.service";
+import {SessionService} from "../../../../core/services/session.service";
 import {Observable} from "rxjs";
-import {Subject} from "../../../subject/models/subject.models";
+import {Subject} from "../../../../core/models/subject.models";
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Post} from "../../models/post.models";
 import {PostService} from "../../services/post.service";
-import {MessageResponse} from "../../../../models/messageResponse.models";
+import {MessageResponse} from "../../../../core/models/messageResponse.models";
 
 @Component({
-    selector: 'app-createpost',
-    templateUrl: './createpost.component.html',
-    styleUrls: ['./createpost.component.scss']
+    selector: 'app-create-post',
+    templateUrl: './create-post.component.html',
+    styleUrls: ['./create-post.component.scss']
 })
-export class CreatepostComponent implements OnInit {
+export class CreatePostComponent implements OnInit {
 
     public subjects$!: Observable<Subject[]>;
     public userId: number;
@@ -52,5 +52,4 @@ export class CreatepostComponent implements OnInit {
             error: error => this.onError = true,
         });
     }
-
 }

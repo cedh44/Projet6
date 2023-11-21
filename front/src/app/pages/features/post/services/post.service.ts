@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {environment} from "../../../../../environments/environment";
 import {Post} from "../models/post.models";
-import {MessageResponse} from "../../../models/messageResponse.models";
+import {MessageResponse} from "../../../core/models/messageResponse.models";
 
 @Injectable({
   providedIn: 'root'
