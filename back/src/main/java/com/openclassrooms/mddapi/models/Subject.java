@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+//Pour les commentaires des annotations, cf classe USer
 @Entity
 @Table(name = "SUBJECTS")
 @Data

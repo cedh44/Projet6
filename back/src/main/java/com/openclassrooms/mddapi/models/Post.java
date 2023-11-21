@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+//Pour les commentaires des annotations, cf classe USer
 @Entity
 @Table(name = "POSTS")
 @Data
