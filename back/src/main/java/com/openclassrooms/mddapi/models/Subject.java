@@ -2,7 +2,7 @@ package com.openclassrooms.mddapi.models;
 
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import com.openclassrooms.mddapi.models.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -33,7 +33,7 @@ public class Subject {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "SUBSCRIPTIONS",
-            joinColumns = @JoinColumn( name = "subject_id" ),
-            inverseJoinColumns = @JoinColumn( name = "user_id" ) )
+            joinColumns = @JoinColumn(name = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
 }

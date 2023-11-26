@@ -49,7 +49,7 @@ public class AuthController {
 
     @PostMapping("/api/auth/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
-        //Vérif si email existent
+        //Vérif si email existant
         if (userRepository.existsByEmail(registerRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already taken!"));
         }

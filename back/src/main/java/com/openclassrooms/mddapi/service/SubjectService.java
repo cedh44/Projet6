@@ -9,8 +9,6 @@ import com.openclassrooms.mddapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class SubjectService {
 
@@ -34,7 +32,7 @@ public class SubjectService {
 
         //On boucle parmi la liste des users du suject pour voir si l'Id du user est présent (il ne doit pas l'être)
         boolean isSubscribed = subject.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
-        if(isSubscribed) {
+        if (isSubscribed) {
             //Si présent on lance une exception qui va retourner HttpStatus.BAD_REQUEST dans la réponse du serveur
             throw new BadRequestException();
         }
@@ -57,7 +55,7 @@ public class SubjectService {
 
         //On boucle parmi la liste des users du suject pour voir si l'Id du user est présent (il doit l'être)
         boolean isSubscribed = subject.getUsers().stream().anyMatch(o -> o.getId().equals(userId));
-        if(!isSubscribed) {
+        if (!isSubscribed) {
             //Si pas présent on lance une exception qui va retourner HttpStatus.BAD_REQUEST dans la réponse du serveur
             throw new BadRequestException();
         }

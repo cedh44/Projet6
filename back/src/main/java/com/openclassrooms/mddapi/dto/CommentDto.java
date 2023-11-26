@@ -1,12 +1,6 @@
 package com.openclassrooms.mddapi.dto;
 
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-
-import javax.persistence.Column;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor

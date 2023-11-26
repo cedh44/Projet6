@@ -1,6 +1,5 @@
 package com.openclassrooms.mddapi.repository;
 
-import com.openclassrooms.mddapi.models.Post;
 import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

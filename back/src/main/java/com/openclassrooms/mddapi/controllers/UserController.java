@@ -36,7 +36,7 @@ public class UserController {
         } catch (NumberFormatException e) {
             return ResponseEntity.badRequest().build();
         } catch (DataIntegrityViolationException e) {
-            //Cas d'usage : un utilisateur saisit un autre email que le sien et déjà présent en BDD : violation de contrainte d'unicité.
+            //Cas d'usage : un utilisateur saisit un autre email que le sien mais déjà présent en BDD : violation de contrainte d'unicité.
             // Renvoyer un BAD REQUEST
             return ResponseEntity.badRequest().build();
         }

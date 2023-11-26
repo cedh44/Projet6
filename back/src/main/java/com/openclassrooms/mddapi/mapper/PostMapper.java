@@ -7,8 +7,6 @@ import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.SubjectRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
-import com.openclassrooms.mddapi.service.SubjectService;
-import com.openclassrooms.mddapi.service.UserService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
