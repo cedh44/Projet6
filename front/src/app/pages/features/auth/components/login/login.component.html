@@ -1,24 +1,30 @@
-<div class="form-card">
-    <mat-card class="login-card">
-        <button mat-icon-button (click)="back()">
+<header>
+    <div>
+        <img src="/assets/logo_p6.png" alt="logo" width="20%" height="20%"/>
+    </div>
+</header>
+<div class="img-responsive">
+    <img src="/assets/logo_p6.png" alt="logo"/>
+</div>
+<div class="container-auth">
+    <div>
+        <button mat-icon-button (click)="home()">
             <mat-icon>arrow_back</mat-icon>
         </button>
-        <mat-card-title>Se connecter</mat-card-title>
-        <form [formGroup]="form" (submit)="onLogin()">
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>E-mail ou nom d'utilisateur</mat-label>
-                    <input matInput type="email" name="email" required formControlName="email">
-                </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>Mot de passe</mat-label>
-                    <input matInput type="password" name="password" required formControlName="password">
-                </mat-form-field>
-            </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Se connecter</button>
+    </div>
+    <h2>Se connecter</h2>
+    <form [formGroup]="form" (submit)="onLogin()">
+        <div class="form-group">
+            <label>E-mail ou nom d'utilisateur</label>
+            <input matInput type="email" name="email" required formControlName="email">
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input matInput type="password" name="password" required formControlName="password">
+        </div>
+        <div class="bottom-button">
+            <button class="button-mdd" mat-raised-button type="submit" [disabled]="form.invalid">Se connecter</button>
             <p *ngIf="onError" class="error">An error occurred</p>
-        </form>
-    </mat-card>
+        </div>
+    </form>
 </div>

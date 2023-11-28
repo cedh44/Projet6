@@ -8,6 +8,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 
 const routes: Routes = [
     {
+        title: 'MDD',
         path: '',
         component: HomeComponent
     },
@@ -21,7 +22,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/features/post/post.module').then(m => m.PostModule)
     },
     {
-        title: 'Thèmes',
+        title: 'Liste des Thèmes',
         path: 'subject',
         component: SubjectRootComponent,
         canActivate: [AuthGuard]

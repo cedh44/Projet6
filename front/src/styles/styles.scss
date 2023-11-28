@@ -2,13 +2,20 @@
 
 html, body {
     height: 100%;
-}
-
-body {
-    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .error {
     color: red;
+}
+
+.button-mdd {
+    background-color: #7464BF;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 10px 15px;
+    width: auto;
+    text-align: center;
+    margin: 15px;
 }

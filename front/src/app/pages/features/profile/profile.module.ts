@@ -8,6 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {SubjectModule} from "../subject/subject.module";
 import {CoreModule} from "../../core/core.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {CoreModule} from "../../core/core.module";
         MatInputModule,
         ReactiveFormsModule,
         SubjectModule,
-        CoreModule
+        CoreModule,
+        MatButtonModule
     ]
 })
 export class ProfileModule {

@@ -1,28 +1,66 @@
-.form-card {
-  box-sizing: border-box;
-  width: 50%;
-  margin: 20px auto;
-  padding: 10px 30px;
-  box-shadow: lightgray 4px 4px 20px;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
 }
 
-.form-group {
+img {
+    width: 200px;
+}
+
+div {
+    display: flex;
+}
+
+.img-responsive {
+    display: none;
+}
+
+.container-auth {
+    display: block;
+    flex-direction: column;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+div.form-group {
   margin: 10px auto;
-  width: 80%;
+  width: 250px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.bottom-button {
+  margin: 10px auto;
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
-input, textarea {
-  width: 100%;
-}
-
-.action-buttons {
-  width: 100%;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
+@media screen and (max-width: 700px) {
+    div.img-responsive {
+        display: block;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+    }
+    header {
+        display: none;
+    }
+    .mat-icon-button {
+        margin-top: -130px;
+    }
 }

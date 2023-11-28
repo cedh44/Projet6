@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {PostListComponent} from "./components/post-list/post-list.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -12,6 +12,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {PostRoutingModule} from "./post-routing.module";
 import {CreatePostComponent} from "./components/create-post/create-post.component";
 import {PostDetailComponent} from "./components/post-detail/post-detail.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
     declarations: [PostListComponent, CreatePostComponent, PostDetailComponent],
@@ -26,7 +27,9 @@ import {PostDetailComponent} from "./components/post-detail/post-detail.componen
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        FormsModule
+        FormsModule,
+        MatButtonModule,
+        NgOptimizedImage
     ]
 })
 export class PostModule {

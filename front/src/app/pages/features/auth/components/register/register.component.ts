@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    public back() {
-        window.history.back();
+    public home() {
+        this.router.navigate(['/']);
     }
 }

@@ -1,32 +1,40 @@
 <app-header></app-header>
-<div class="list">
-    <div>
-        <button mat-raised-button color="primary" [routerLink]="['createPost']">Créer un article</button>
-    </div>
-    <div class="sort">
-        <button class="sortBy" (click)="sortBy()">Trier par
-            <mat-icon *ngIf="!ascend; else displayUp">arrow_downward</mat-icon>
-            <ng-template #displayUp>
-                <mat-icon>arrow_upward</mat-icon>
-            </ng-template>
-        </button>
-    </div>
-    <mat-card>
-        <div fxLayout="row wrap" fxLayout.lt-md="column">
-            <mat-card class="item" *ngFor="let post of postsList" fxFlex>
-                <mat-card-header>
-                    <mat-card-title>{{ post.title }}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>Date : {{ post.createdAt | date: 'longDate'}}</p>
-                    <p>Auteur : {{ post.user_name }}</p>
-                </mat-card-content>
-                <mat-card-content>
-                    <p (click)="postDetail(post.id)">
-                        {{ post.content }}
-                    </p>
-                </mat-card-content>
-            </mat-card>
+<section class="container-list-post-section">
+    <div class="container-create-sort">
+        <div class="create-button">
+            <button class="button-mdd" [routerLink]="['createPost']">Créer un article</button>
         </div>
-    </mat-card>
-</div>
+        <div class="sort-button">
+            <button class="sortBy" (click)="sortBy()">Trier par
+                <mat-icon *ngIf="!ascend; else displayUp">arrow_downward</mat-icon>
+                <ng-template #displayUp>
+                    <mat-icon>arrow_upward</mat-icon>
+                </ng-template>
+            </button>
+        </div>
+    </div>
+    <div class="container-list-post-div">
+        <div class="div-post" *ngFor="let post of postsList" (click)="postDetail(post.id)">
+            <h2>
+                {{ post.title }}
+            </h2>
+            <div class="date-author">
+                <div class="date">
+                    Date : {{ post.createdAt | date: 'longDate'}}
+                </div>
+                <div class="author">
+                    Auteur : {{ post.user_name }}
+                </div>
+            </div>
+            <div class="content" *ngIf="post.content.length > 225; else displayAllContent"
+                 (click)="postDetail(post.id)">
+                {{ post.content.substring(0, 225) }} ...
+            </div>
+            <ng-template #displayAllContent>
+                <div class="content">
+                    {{ post.content }}
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

@@ -1,31 +1,31 @@
 <app-header></app-header>
-<div class="form-card">
-    <mat-card>
-        <mat-card-title>Créer un nouvel article</mat-card-title>
-        <form [formGroup]="postForm" (submit)="onCreatePost()">
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>Sélectionner un thème</mat-label>
-                    <mat-select name="subject_id" formControlName="subject_id">
-                        <mat-option *ngFor="let subject of subjects$ | async" [value]="subject.id">
-                            {{subject.title}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
-                    <input matInput type="title" name="title" placeholder="Titre de l'article" required
-                           formControlName="title">
-                </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field>
-                    <textarea matInput type="content" name="content" placeholder="Contenu de l'article" formControlName="content"></textarea>
-                </mat-form-field>
-            </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Créer</button>
+<div class="container-create-post">
+    <div>
+        <button mat-icon-button (click)="back()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <h2>Créer un nouvel article</h2>
+    <form [formGroup]="postForm" (submit)="onCreatePost()">
+        <div class="form-group">
+            <select name="subject_id" formControlName="subject_id" >
+                <option value="" disabled>Sélectionner un thème</option>
+                <option *ngFor="let subject of subjects$ | async" [value]="subject.id">
+                    {{subject.title}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="title" name="title" placeholder="Titre de l'article" required
+                   formControlName="title">
+        </div>
+        <div class="form-group">
+            <textarea type="content" name="content" rows="10" class="textarea-content" placeholder="Contenu de l'article"
+                      formControlName="content"></textarea>
+        </div>
+        <div class="bottom-button">
+            <button class="button-mdd" mat-raised-button type="submit" [disabled]="postForm.invalid">Créer</button>
             <p *ngIf="onError" class="error">An error occurred</p>
-        </form>
-    </mat-card>
+        </div>
+    </form>
 </div>

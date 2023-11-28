@@ -1,8 +1,27 @@
 <header>
-    <div>
-        <img src="/assets/logo_p6.png" alt="logo" width="20%" height="20%"/>
+    <div class="div-mdd">
+        <img class="img-mdd" src="/assets/logo_p6.png" alt="logo"/>
+    </div>
+
+    <div class="div-nav-site" *ngIf="$isLogged() | async;">
         <a routerLink="/post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Articles</a>
         <a routerLink="/subject" routerLinkActive="active">Thèmes</a>
-        <a routerLink="/profile" routerLinkActive="active">Profil</a>
+        <a routerLink="/profile" routerLinkActive="activeImg"><img class="img-profile" src="/assets/profile-button.png"></a>
+    </div>
+    <div class="div-nav-mobile">
+        <button class="button-nav-mobile" mat-button (click)="showMenuMobile()">
+            <img src="/assets/nav-icon.png" width="30px">
+        </button>
+    </div>
+    <div id="div-menu-mobile" [ngClass]="{'show-menu':isShowMenuMobile}" (click)="showMenuMobile()">
+        <!--
+                <div class="div-menu-mobile-articles-themes">
+                    <a routerLink="/post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Articles</a>
+                    <a routerLink="/subject" routerLinkActive="active">Thèmes</a>
+                </div>
+                <div class="div-menu-mobile-profile">
+                    <a routerLink="/profile" routerLinkActive="activeImg"><img class="div-menu-mobile-img-profile" src="/assets/profile-button.png"></a>
+                </div>
+        -->
     </div>
 </header>

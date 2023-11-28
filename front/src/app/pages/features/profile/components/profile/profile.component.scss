@@ -1,0 +1,63 @@
+.container-profile {
+    display: block;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+
+h2 {
+    text-align: center;
+}
+
+div.form-group {
+  margin: 5px auto;
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #7464BF;
+}
+
+select {
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid #7763C5;
+  border-radius: 5px;
+  height: 3rem;
+  background: none;
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #7763C5;
+  border-radius: 5px;
+  height: 6rem;
+}
+
+.bottom-button {
+  margin: 5px auto;
+  width: 250px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-logout {
+    color: #87321B;
+    background-color: white;
+    border: 0px;
+    width: auto;
+    text-align: center;
+}

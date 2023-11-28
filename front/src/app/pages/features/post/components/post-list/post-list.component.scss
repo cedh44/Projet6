@@ -1,10 +1,68 @@
-.sort{
+.container-list-post-section {
+    padding: 10px;
     display: flex;
-
-    > button{
-        font-size: 15px;
-        background-color: white;
-        border: none;
-    }
-
+    flex-direction: column;
+    width: 690px;
+    margin: auto;
 }
+
+.container-create-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sortBy {
+    font-size: 15px;
+    background-color: white;
+    border: none;
+}
+
+.container-list-post-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.div-post{
+    margin: 10px auto;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.date-author{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.date {
+    margin-right: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .container-list-post-section {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: auto;
+    }
+    .container-create-sort {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-list-post-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+

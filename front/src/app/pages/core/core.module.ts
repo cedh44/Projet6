@@ -12,6 +12,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
+import {HeaderModule} from "../features/header/header.module";
 
 @NgModule({
     declarations: [SubjectListComponent],
@@ -29,6 +30,7 @@ import {MatSelectModule} from "@angular/material/select";
         ReactiveFormsModule,
         MatSelectModule,
         FormsModule,
+        HeaderModule,
     ],
     exports: [SubjectListComponent]
 })

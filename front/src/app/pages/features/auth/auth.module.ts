@@ -11,6 +11,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {HeaderModule} from "../header/header.module";
 
 @NgModule({
     declarations: [LoginComponent, RegisterComponent],
@@ -27,6 +28,7 @@ import {MatButtonModule} from "@angular/material/button";
         ReactiveFormsModule,
         MatIconModule,
         MatButtonModule,
+        HeaderModule,
         //Pour le form builder
     ]
 })

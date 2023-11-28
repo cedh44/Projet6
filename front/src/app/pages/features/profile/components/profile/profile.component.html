@@ -1,27 +1,23 @@
 <app-header></app-header>
-<div class="form-card">
-    <mat-card>
-        <mat-card-title>Profil Utilisateur</mat-card-title>
-        <form [formGroup]="profileForm" (submit)="onUpdateProfile()">
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput type="name" name="name" required placeholder="Username"
-                           formControlName="name">
-                </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput type="email" name="email" required placeholder="email@email.fr"
-                           formControlName="email">
-                </mat-form-field>
-            </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">Sauvegarder
+
+<div class="container-profile">
+    <h2>Profil Utilisateur</h2>
+    <form [formGroup]="profileForm" (submit)="onUpdateProfile()">
+        <div class="form-group">
+                <input matInput type="name" name="name" required placeholder="Username"
+                       formControlName="name">
+        </div>
+        <div class="form-group">
+                <input matInput type="email" name="email" required placeholder="email@email.fr"
+                       formControlName="email">
+        </div>
+        <div class="bottom-button">
+            <button class="button-mdd" type="submit" [disabled]="profileForm.invalid">Sauvegarder
             </button>
             <p *ngIf="onError" class="error">An error occurred</p>
-        </form>
-        <br>
-        <button mat-raised-button color="primary" (click)="onLogOut()">Se déconnecter</button>
-    </mat-card>
+            <button class="button-logout" (click)="onLogOut()">Se déconnecter</button>
+        </div>
+    </form>
 </div>
 <div>
     <h2>Abonnements</h2>

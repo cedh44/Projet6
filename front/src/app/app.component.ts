@@ -20,9 +20,4 @@ export class AppComponent {
   public $isLogged(): Observable<boolean> {
     return this.sessionService.$isLogged();
   }
-
-  public logout(): void {
-    this.sessionService.logOut();
-    this.router.navigate([''])
-  }
 }

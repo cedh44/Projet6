@@ -19,7 +19,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        title: 'Articles',
+        title: 'Liste des Articles',
         path: '',
         component: PostListComponent,
         canActivate: [AuthGuard]

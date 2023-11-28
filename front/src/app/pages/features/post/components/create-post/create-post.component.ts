@@ -23,7 +23,7 @@ export class CreatePostComponent implements OnInit {
     public postForm = this.formBuilder.group({
         subject_id: ['', [Validators.required]],
         title: ['',[Validators.required,Validators.minLength(3)]],
-        content: ['', ]
+        content: ['', [Validators.required,Validators.minLength(5)]]
     });
 
     constructor(private subjectService: SubjectService,
@@ -51,5 +51,9 @@ export class CreatePostComponent implements OnInit {
             },
             error: error => this.onError = true,
         });
+    }
+
+    public back() {
+        window.history.back();
     }
 }
