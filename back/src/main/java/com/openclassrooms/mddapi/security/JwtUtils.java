@@ -27,23 +27,4 @@ public class JwtUtils {
                 .build();
         return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
-
-    //Extraction de l'email depuis le token
-    public String getEmailFromToken(String token) {
-        token = deleteBearerFromToken(token); //Delete "Bearer" from token
-        if (token != null) {
-            Jwt claims = this.decoder.decode(token);
-            return claims.getSubject();
-        } else {
-            return "";
-        }
-    }
-
-    //Supp "Bearer" du token
-    public String deleteBearerFromToken(String token) {
-        if (token != null) {
-            if (token.startsWith("Bearer ")) return token.substring(7);
-        }
-        return null;
-    }
 }

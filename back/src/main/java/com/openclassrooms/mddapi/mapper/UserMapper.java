@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Component
 //TODO : supprimer les  uses = {} ?
-@Mapper(componentModel = "spring", uses = {}, imports = {Arrays.class, Collectors.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring", imports = {Arrays.class, Collectors.class, User.class, Collections.class, Optional.class})
 public interface UserMapper extends EntityMapperToDto<UserDto, User> {
 
 

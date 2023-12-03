@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -34,6 +35,12 @@ public class PostController {
     public ResponseEntity<?> findPostsToSubjectsSubscribed(@PathVariable("userId") String userId) {
         try {
             List<Post> posts = postService.findPostsToSubjectsSubscribed(Long.parseLong(userId));
+            //Limiter le contenu du post à 225 car et ajouter "..."
+            posts = posts.stream().map(post -> {
+                if (post.getContent().length() > 224) post.getContent().substring(0, 224).concat("...");
+                return post;
+            }).collect(Collectors.toList());
+
             //Si appel OK, on retourne OK et la liste des posts au format Dto
             return ResponseEntity.ok().body(postMapper.toDto(posts));
         } catch (NumberFormatException e) {

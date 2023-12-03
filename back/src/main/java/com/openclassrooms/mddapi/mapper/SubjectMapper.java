@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@Mapper(componentModel = "spring", uses = {}, imports = {Arrays.class, Collectors.class, Subject.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class}, imports = {Arrays.class, Collectors.class, Subject.class, User.class, Collections.class, Optional.class})
 public interface SubjectMapper extends EntityMapperToDto<SubjectDto, Subject> {
 
     @Mapping(target = "users", expression = "java(mapUsers(subject.getUsers()))")

@@ -25,7 +25,7 @@ public class UserController {
     UserService userService;
 
     @PutMapping("{id}")
-    public ResponseEntity<?> update(@PathVariable("id") String id, @Valid @RequestBody UserDto userDto) {
+    public ResponseEntity<?> update(@Valid @PathVariable("id") String id, @RequestBody UserDto userDto) {
         try {
             //Mise à jour du user en BDD
             userDto.setId(Long.parseLong(id));

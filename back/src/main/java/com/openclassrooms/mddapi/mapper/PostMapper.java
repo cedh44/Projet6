@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@Mapper(componentModel = "spring", uses = {}, imports = {Arrays.class, Collectors.class, Post.class, Subject.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring", imports = {Arrays.class, Collectors.class, Post.class, Subject.class, User.class, Collections.class, Optional.class})
 public abstract class PostMapper implements EntityMapperToEntity<PostDto, Post>, EntityMapperToDto<PostDto, Post> {
 
     @Autowired
