@@ -12,17 +12,16 @@
         <button class="button-nav-mobile" mat-button (click)="showMenuMobile()">
             <img src="/assets/nav-icon.png" width="30px">
         </button>
-        <div id="div-menu-mobile" [ngClass]="{'show-menu':isShowMenuMobile}" (click)="showMenuMobile()">
-            <!--
-                    <div class="div-menu-mobile-articles-themes">
+        <div class="div-menu-mobile" [ngClass]="{'show-menu':isShowMenuMobile}" (click)="showMenuMobile()">
+
+                    <div class="div-menu-mobile-articles-themes" [ngClass]="{'show-div-menu-mobile-articles-themes':isShowMenuMobile}">
                         <a routerLink="/post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Articles</a>
                         <a routerLink="/subject" routerLinkActive="active">Thèmes</a>
                     </div>
-                    <div class="div-menu-mobile-profile">
+                    <div class="div-menu-mobile-profile" [ngClass]="{'show-div-menu-mobile-profile':isShowMenuMobile}">
                         <a routerLink="/profile" routerLinkActive="activeImg"><img class="div-menu-mobile-img-profile" src="/assets/profile-button.png"></a>
                     </div>
-            -->
+
         </div>
     </div>
-
 </header>
