@@ -10,24 +10,24 @@ import {MessageResponse} from "../../../core/models/messageResponse.models";
 })
 export class PostService {
 
-  private pathService = '/post';
+  private pathService = 'api/post';
 
   constructor(private httpClient: HttpClient) {
   }
 
   //Appel au back pour récupérer tous les posts du user suivant les subjects abonnés
   public allPostsBySubjectsSuscribed(userId: number): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${environment.baseUrl}${this.pathService}/user/${userId}`);
+    return this.httpClient.get<Post[]>(`${this.pathService}/user/${userId}`);
   }
 
   //Appel au back pour la création d'un post
   public createPost(post: Post): Observable<MessageResponse> {
-    return this.httpClient.post<MessageResponse>(`${environment.baseUrl}${this.pathService}`, post);
+    return this.httpClient.post<MessageResponse>(`${this.pathService}`, post);
   }
 
   //Appel au back pour récupérer un post par son id
   public postById(postId: number): Observable<Post> {
-    return this.httpClient.get<Post>(`${environment.baseUrl}${this.pathService}/${postId}`);
+    return this.httpClient.get<Post>(`${this.pathService}/${postId}`);
   }
 
 }

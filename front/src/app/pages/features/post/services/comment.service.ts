@@ -10,18 +10,18 @@ import {Comment} from "../models/comment.models";
 })
 export class CommentService {
 
-    private pathService = '/comment';
+    private pathService = 'api/comment';
 
     constructor(private httpClient: HttpClient) {
     }
 
     //Appel au back pour récupérer tous les posts du user suivant les subjects abonnés
     public allCommentsByPostId(postId: number): Observable<Comment[]> {
-        return this.httpClient.get<Comment[]>(`${environment.baseUrl}${this.pathService}/post/${postId}`);
+        return this.httpClient.get<Comment[]>(`${this.pathService}/post/${postId}`);
     }
 
     //Appel au back pour la création d'un commentaire
     public createComment(comment: Comment): Observable<MessageResponse> {
-        return this.httpClient.post<MessageResponse>(`${environment.baseUrl}${this.pathService}`, comment);
+        return this.httpClient.post<MessageResponse>(`${this.pathService}`, comment);
     }
 }

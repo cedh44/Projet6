@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AuthModule} from "./pages/features/auth/auth.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "./pages/features/header/header.module";
@@ -20,6 +20,7 @@ import * as fr from '@angular/common/locales/fr';
 import {registerLocaleData} from "@angular/common";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {CoreModule} from "./pages/core/core.module";
+import {JwtInterceptor} from "./pages/core/interceptors/jwt.interceptor";
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, NotFoundComponent],
@@ -42,7 +43,10 @@ import {CoreModule} from "./pages/core/core.module";
         SubjectModule,
         CoreModule
     ],
-    providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
+    providers: [
+        {provide: LOCALE_ID, useValue: 'fr-FR'},
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    ],
     exports: [],
     bootstrap: [AppComponent]
 })

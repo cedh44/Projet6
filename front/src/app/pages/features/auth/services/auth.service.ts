@@ -12,17 +12,17 @@ import {MessageResponse} from "../../../core/models/messageResponse.models";
 })
 export class AuthService {
 
-    private pathService = '/auth';
+    private pathService = 'api/auth';
 
     constructor(private httpClient: HttpClient) {
     }
 
     public login(loginRequest: LoginRequest): Observable<any> {
-        return this.httpClient.post<UserSession>(`${environment.baseUrl}${this.pathService}/login`, loginRequest);
+        return this.httpClient.post<UserSession>(`${this.pathService}/login`, loginRequest);
     }
 
     public register(registerRequest : RegisterRequest): Observable<any> {
-        return this.httpClient.post<MessageResponse>(`${environment.baseUrl}${this.pathService}/register`, registerRequest)
+        return this.httpClient.post<MessageResponse>(`${this.pathService}/register`, registerRequest)
     }
 
 }
