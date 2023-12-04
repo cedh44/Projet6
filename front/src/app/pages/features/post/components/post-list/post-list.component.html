@@ -26,15 +26,9 @@
                     Auteur : {{ post.user_name }}
                 </div>
             </div>
-            <div class="content" *ngIf="post.content.length > 225; else displayAllContent"
-                 (click)="postDetail(post.id)">
-                {{ post.content.substring(0, 225) }} ...
+            <div class="content" (click)="postDetail(post.id)">
+                {{ post.content }}
             </div>
-            <ng-template #displayAllContent>
-                <div class="content">
-                    {{ post.content }}
-                </div>
-            </ng-template>
         </div>
     </div>
 </section>

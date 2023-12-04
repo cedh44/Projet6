@@ -75,6 +75,10 @@ a {
     display: none;
 }
 
+.div-menu-mobile-blur{
+    display: none;
+}
+
 .show-div-menu-mobile-articles-themes {
     display: flex;
     flex-direction: column;
@@ -84,6 +88,16 @@ a {
 .show-div-menu-mobile-profile {
     display: flex;
     flex-direction: column;
+}
+
+.show-div-menu-mobile-blur {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 40%;
+    background-color: rgba(128,128,127,0.5); // Gère la partie grisée quand le menu mobile s'ouvre
 }
 
 @media screen and (max-width: 700px) {

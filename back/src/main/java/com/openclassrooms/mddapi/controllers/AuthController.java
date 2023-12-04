@@ -33,7 +33,7 @@ public class AuthController {
         //Recherche du user par email
         User userFound = this.userRepository.findByEmail(loginRequest.getEmail()).orElse(null);
         //Sinon recherche du user par name
-        if(userFound == null) userFound = this.userRepository.findByName(loginRequest.getEmail()).orElse(null);
+        if (userFound == null) userFound = this.userRepository.findByName(loginRequest.getEmail()).orElse(null);
 
         if (userFound != null) {
             //Vérification du password
@@ -52,6 +52,10 @@ public class AuthController {
         //Vérif si email existant
         if (userRepository.existsByEmail(registerRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already taken!"));
+        }
+        //Vérif si name existant
+        if (userRepository.existsByName(registerRequest.getName())) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: Name is already taken!"));
         }
 
         //Création de compte

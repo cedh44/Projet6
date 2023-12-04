@@ -27,6 +27,11 @@ public class SubjectController {
     public ResponseEntity<?> findAll() {
         //On récupére l'ensemble des subjects
         List<Subject> subjects = this.subjectRepository.findAll();
+        //Limiter le contenu du post à 225 car et ajouter "..."
+        subjects.forEach(subject -> {
+            if (subject.getContent().length() > 224)
+                subject.setContent(subject.getContent().substring(0, 224).concat("..."));
+        });
         //On retourne OK et la liste des subjects au format Dto
         return ResponseEntity.ok().body(subjectMapper.toDto(subjects));
     }

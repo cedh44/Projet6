@@ -6,14 +6,7 @@ import {HomeComponent} from './pages/home/home.component';
 import {AuthModule} from "./pages/features/auth/auth.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {MatCardModule} from "@angular/material/card";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HeaderModule} from "./pages/features/header/header.module";
-import {MatIconModule} from "@angular/material/icon";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatSelectModule} from "@angular/material/select";
 import {ProfileModule} from "./pages/features/profile/profile.module";
 import {SubjectModule} from "./pages/features/subject/subject.module";
 import * as fr from '@angular/common/locales/fr';
@@ -30,15 +23,7 @@ import {JwtInterceptor} from "./pages/core/interceptors/jwt.interceptor";
         AuthModule,
         BrowserAnimationsModule,
         HttpClientModule,   //Nécessaire pour les appels au backend
-        MatCardModule,
-        MatSnackBarModule,
         HeaderModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        FormsModule,
         ProfileModule,
         SubjectModule,
         CoreModule
