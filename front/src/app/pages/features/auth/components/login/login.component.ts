@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
                 this.sessionService.logIn(response)
                 this.router.navigate(['/post']);
             },
-            error: error => this.onError = true,
+            error: () => this.onError = true,
         });
     }
 

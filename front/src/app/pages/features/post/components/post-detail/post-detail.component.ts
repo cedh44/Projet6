@@ -38,7 +38,7 @@ export class PostDetailComponent implements OnInit {
 
     ngOnInit(): void {
         //On récupère de la liste des articles, l'id
-        this.postId =+ this.route.snapshot.paramMap.get('postId')!;
+        this.postId = +this.route.snapshot.paramMap.get('postId')!;
 
         //Récupérer le post du back (titre, content, date, auteur, subject)
         this.post$ = this.postService.postById(this.postId);
@@ -65,7 +65,7 @@ export class PostDetailComponent implements OnInit {
                 //this.commentForm?.setValue({content:' '});
 
             },
-            error: error => this.onError = true,
+            error: () => this.onError = true,
         });
     }
 }

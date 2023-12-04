@@ -16,8 +16,4 @@ export class AppComponent {
       private router: Router,
       private sessionService: SessionService) {
   }
-
-  public $isLogged(): Observable<boolean> {
-    return this.sessionService.$isLogged();
-  }
 }

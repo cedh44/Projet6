@@ -49,7 +49,7 @@ export class CreatePostComponent implements OnInit {
                 this.matSnackBar.open(response.message, 'Close', { duration: 3000 });
                 this.router.navigate(['/post']);
             },
-            error: error => this.onError = true,
+            error: () => this.onError = true,
         });
     }
 

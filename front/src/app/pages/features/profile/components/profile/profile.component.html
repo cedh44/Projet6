@@ -4,11 +4,11 @@
     <h2>Profil Utilisateur</h2>
     <form [formGroup]="profileForm" (submit)="onUpdateProfile()">
         <div class="form-group">
-            <input matInput type="name" name="name" required placeholder="Username"
+            <input type="name" name="name" required placeholder="Username"
                    formControlName="name">
         </div>
         <div class="form-group">
-            <input matInput type="email" name="email" required placeholder="email@email.fr"
+            <input type="email" name="email" required placeholder="email@email.fr"
                    formControlName="email">
         </div>
         <div class="div-submit-button">

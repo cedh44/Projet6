@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
                 this.matSnackBar.open("utilisateur créé", 'Close', { duration: 3000 });
                 this.router.navigate(['/login']);
             },
-            error: error => this.onError = true,
+            error: () => this.onError = true,
         });
     }
 

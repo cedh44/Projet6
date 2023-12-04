@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
                 this.matSnackBar.open("Mise à jour effectuée", 'Close', {duration: 3000});
                 this.router.navigate(['/post']);
             },
-            error: error => this.onError = true,
+            error: () => this.onError = true,
         });
     }
 
