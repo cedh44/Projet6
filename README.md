@@ -29,6 +29,7 @@ Se connecter en tant que root dans mysql, puis taper :
 
 ### Back :
 - depuis un terminal, depuis la racine du Projet6 : `cd back`
+- le projet a été développé sous Intellij et le user/password d'accès à la base de données ont été externalisé. Donc dans le fichier application properties, vous trouverez les paramètres ${DB_USER} et ${DB_PASSWD}. Il faut donc les remplacer par les identifiants cités plus haut (mdduser / mddPass123!)
 - puis `mvn compile` afin de valider que la compilation s'effectue correctement puis `mvn install`
 
 ## Lancer l'application
@@ -38,7 +39,6 @@ Se connecter en tant que root dans mysql, puis taper :
 - l'application est disponible à l'url http://localhost:4200/
 
 ### Back :
-- le projet a été développé sous Intellij et le user/password d'accès à la base de données ont été externalisé. Donc dans le fichier application properties, vous trouverez les paramètres ${DB_USER} et ${DB_PASSWD}. Il faut donc les remplacer par les identifiants cités plus haut (mdduser / mddPass123!)
 - dans un terminal, depuis le répertoire back : `mvn spring-boot:run`
 - l'application est disponible à l'url http://localhost:8080/ (en tant qu'API)
 
