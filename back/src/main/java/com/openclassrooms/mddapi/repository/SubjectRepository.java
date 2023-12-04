@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
     List<Subject> findSubjectsByUsersIs(User user);
+
+    List<Subject> findSubjectsByUsersIsNotContaining(User user);
 }

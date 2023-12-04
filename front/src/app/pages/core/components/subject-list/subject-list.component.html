@@ -1,40 +1,23 @@
 <section class="container-list-subject-section">
     <div class="container-list-subject-div">
-        <ng-container *ngFor="let subject of (subjects$ | async)">
-
-            <ng-container *ngIf="fromSubjectComponent && !isSubscribedSubject(subject)">
-                <!-- On est dans le cas où on affiche la liste des thèmes depuis l'onglet Thèmes
-                Donc on affiche tous les thèmes où l'utilisateur peut s'abonner -->
-
-                <div class="div-subject">
-                    <!-- il n'est pas abonné donc on affiche le thème pour qu'il puisse s'abonner -->
-                    <h2>
-                        {{ subject.title }}
-                    </h2>
-                    <div class="content">
-                        {{ subject.content }}
-                    </div>
-                    <div class="div-button-subject">
+        <ng-container *ngFor="let subject of (subjectsNouvelleVersion$ | async)">
+            <div class="div-subject">
+                <h2>
+                    {{ subject.title }}
+                </h2>
+                <div class="content">
+                    {{ subject.content }}
+                </div>
+                <div class="div-button-subject">
+                    <ng-container *ngIf="fromSubjectComponent; else fromProfileComponent">
                         <button class="button-mdd" (click)="subscribe(subject.id)">S'abonner</button>
-                    </div>
-                </div>
-            </ng-container>
-            <ng-container *ngIf="!fromSubjectComponent && isSubscribedSubject(subject)">
-                <!-- On est dans le cas où on affiche liste des thèmes depuis l'onglet Profil
-                Donc on affiche tous les thèmes où l'utilisateur peut se désabonner -->
-                <!-- l'utilisateur est abonné donc on affiche le thème pour qu'il puisse se désabonner -->
-                <div class="div-subject">
-                    <h2>
-                        {{ subject.title }}
-                    </h2>
-                    <div class="content">
-                        {{ subject.content }}
-                    </div>
-                    <div class="div-button-subject">
+                    </ng-container>
+                    <ng-template #fromProfileComponent>
                         <button class="button-mdd" (click)="unSubscribe(subject.id)">Se désabonner</button>
-                    </div>
+                    </ng-template>
                 </div>
-            </ng-container>
+            </div>
         </ng-container>
+        <p>{{ emptyListPostMessage }}</p>
     </div>
 </section>

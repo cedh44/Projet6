@@ -14,6 +14,7 @@
         </div>
     </div>
     <div class="container-list-post-div">
+        <p> {{ emptyListPostMessage }}</p>
         <div class="div-post" *ngFor="let post of postsList" (click)="postDetail(post.id)">
             <h2>
                 {{ post.title }}

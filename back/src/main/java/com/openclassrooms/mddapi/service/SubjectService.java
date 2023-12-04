@@ -2,12 +2,16 @@ package com.openclassrooms.mddapi.service;
 
 import com.openclassrooms.mddapi.exception.BadRequestException;
 import com.openclassrooms.mddapi.exception.NotFoundException;
+import com.openclassrooms.mddapi.models.Post;
 import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.SubjectRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SubjectService {
@@ -18,6 +22,22 @@ public class SubjectService {
 
     public SubjectService(SubjectRepository subjectRepository) {
         this.subjectRepository = subjectRepository;
+    }
+
+    //Retourne la liste des subjects où l'utilisateur est abonné
+    public List<Subject> findSubjectsSubscribed(Long userId) {
+        List<Post> postsToSubjectsSubscribed = new ArrayList<>();
+        //Récupérer le user
+        User userFound = this.userRepository.findById(userId).orElse(null);
+        return this.subjectRepository.findSubjectsByUsersIs(userFound);
+    }
+
+    //Retourne la liste des subjects où l'utilisateur n'est pas abonné
+    public List<Subject> findNotSubjectsSubscribed(Long userId) {
+        List<Post> postsToSubjectsSubscribed = new ArrayList<>();
+        //Récupérer le user
+        User userFound = this.userRepository.findById(userId).orElse(null);
+        return this.subjectRepository.findSubjectsByUsersIsNotContaining(userFound);
     }
 
     //Abonnement à un un subject

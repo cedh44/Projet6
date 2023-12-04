@@ -5,45 +5,50 @@ import {SubjectService} from "../../services/subject.service";
 import {SessionService} from "../../services/session.service";
 
 @Component({
-  selector: 'app-subject-list',
-  templateUrl: './subject-list.component.html',
-  styleUrls: ['./subject-list.component.scss']
+    selector: 'app-subject-list',
+    templateUrl: './subject-list.component.html',
+    styleUrls: ['./subject-list.component.scss']
 })
 export class SubjectListComponent implements OnInit {
 
-  @Input() fromSubjectComponent!: boolean;
-  public subjects$!: Observable<Subject[]>;
-  public userId: number;
+    @Input() fromSubjectComponent!: boolean;
+    public subjects$!: Observable<Subject[]>;
+    public subjectsNouvelleVersion$!: Observable<Subject[]>;
+    public userId: number;
+    public emptyListPostMessage: string = '';
 
-  constructor(private subjectService: SubjectService,
-              private sessionService: SessionService) {
-    this.userId = this.sessionService.userSession!.id;
-  }
+    constructor(private subjectService: SubjectService,
+                private sessionService: SessionService) {
+        this.userId = this.sessionService.userSession!.id;
+    }
 
-  ngOnInit(): void {
-    //Appel au back pour récupérer tous les subjects
-    this.subjects$ = this.subjectService.all();
-  }
+    ngOnInit(): void {
+        if (this.fromSubjectComponent) {
+            //L'utilisateur est sur la page des thèmes, il faut afficher les thèmes où il n'est pas encore abonné
+            this.subjectsNouvelleVersion$ = this.subjectService.allNotSubscribedSubjects(this.userId);
+            this.subjectsNouvelleVersion$.subscribe(subjectListFromJson => {
+                if (subjectListFromJson.length === 0) this.emptyListPostMessage = "Vous êtes abonné à tous les thèmes";
+            })
+        } else {
+            //L'utilisateur est sur la page de profil, il faut afficher les thèmes auxquels il est abonné
+            this.subjectsNouvelleVersion$ = this.subjectService.allSubscribedSubjects(this.userId);
+            this.subjectsNouvelleVersion$.subscribe(subjectListFromJson => {
+                if (subjectListFromJson.length === 0) this.emptyListPostMessage = "Vous n'êtes abonné à aucun thème";
+            })
+        }
+    }
 
-  //User logué est abonné au sujet ?
-  public isSubscribedSubject(subject: Subject): boolean {
-    const idUser = subject.users?.find(user =>
-        user == this.userId
-    );
-    return idUser != null;
-  }
+    public subscribe(idSubject: number): void {
+        this.subjectService.subscribeSubject(idSubject, this.userId).subscribe(_ => {
+            //On rafraichit le composant
+            this.ngOnInit();
+        });
+    }
 
-  public subscribe(idSubject: number): void {
-    this.subjectService.subscribeSubject(idSubject, this.userId).subscribe(_ => {
-      //On rafraichit le composant
-      this.ngOnInit();
-    });
-  }
-
-  public unSubscribe(idSubject: number): void {
-    this.subjectService.unSubscribeSubject(idSubject, this.userId).subscribe(_ => {
-      //On rafraichit le composant
-      this.ngOnInit();
-    });
-  }
+    public unSubscribe(idSubject: number): void {
+        this.subjectService.unSubscribeSubject(idSubject, this.userId).subscribe(_ => {
+            //On rafraichit le composant
+            this.ngOnInit();
+        });
+    }
 }

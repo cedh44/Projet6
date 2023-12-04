@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class PostListComponent implements OnInit {
 
     public postsList!: Post[];
+    public emptyListPostMessage: string = '';
     public userId: number;
     public ascend: boolean = true;
 
@@ -24,10 +25,14 @@ export class PostListComponent implements OnInit {
     ngOnInit(): void {
         //Appel au back pour récupérer tous les posts du user
         this.postService.allPostsBySubjectsSuscribed(this.userId).subscribe(postListFromJson => {
-            if (Array.isArray(postListFromJson)) {
-                this.postsList = postListFromJson;
-                //Tri par défaut
-                this.sortBy();
+            if (postListFromJson.length === 0) {
+                this.emptyListPostMessage = "Veuillez vous abonner aux thèmes pour accéder aux articles";
+            } else {
+                if (Array.isArray(postListFromJson)) {
+                    this.postsList = postListFromJson;
+                    //Tri par défaut
+                    this.sortBy();
+                }
             }
         })
     }
@@ -40,7 +45,7 @@ export class PostListComponent implements OnInit {
         this.ascend = !this.ascend;
     }
 
-    public postDetail(postId: number): void{
+    public postDetail(postId: number): void {
         this.router.navigateByUrl(`post/postDetail/${postId}`);
     }
 
