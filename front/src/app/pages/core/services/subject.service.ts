@@ -28,12 +28,12 @@ export class SubjectService {
         return this.httpClient.get<Subject[]>(`${this.pathService}/notsubscribedsubjects/${userId}`);
     }
 
-    //Abonnement à un sujet par son id
+    //Abonnement à un thème par son id
     public subscribeSubject(idSubject: number, userId: number): Observable<void> {
         return this.httpClient.post<void>(`${this.pathService}/${idSubject}/subscribe/${userId}`, null);
     }
 
-    //Désabonnement d'un sujet par son id
+    //Désabonnement d'un thème par son id
     public unSubscribeSubject(idSubject: number, userId: number): Observable<void> {
         return this.httpClient.post<void>(`${this.pathService}/${idSubject}/unsubscribe/${userId}`, null);
     }

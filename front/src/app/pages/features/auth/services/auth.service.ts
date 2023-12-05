@@ -16,10 +16,12 @@ export class AuthService {
     constructor(private httpClient: HttpClient) {
     }
 
+    //Appel au back pour login
     public login(loginRequest: LoginRequest): Observable<any> {
         return this.httpClient.post<UserSession>(`${this.pathService}/login`, loginRequest);
     }
 
+    //Appel au back pour le register
     public register(registerRequest: RegisterRequest): Observable<any> {
         return this.httpClient.post<MessageResponse>(`${this.pathService}/register`, registerRequest)
     }

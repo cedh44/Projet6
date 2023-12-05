@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        //Si l'utilisateur n'est pas connecté alors retour forcé vers la page de login
         if (!this.sessionService.isLogged) {
             this.router.navigate(['login']);
             return false;

@@ -38,6 +38,7 @@ export class SubjectListComponent implements OnInit {
         }
     }
 
+    //Abonnement au thème
     public subscribe(idSubject: number): void {
         this.subjectService.subscribeSubject(idSubject, this.userId).subscribe(_ => {
             //On rafraichit le composant
@@ -45,6 +46,7 @@ export class SubjectListComponent implements OnInit {
         });
     }
 
+    //Désabonnement au thème
     public unSubscribe(idSubject: number): void {
         this.subjectService.unSubscribeSubject(idSubject, this.userId).subscribe(_ => {
             //On rafraichit le composant

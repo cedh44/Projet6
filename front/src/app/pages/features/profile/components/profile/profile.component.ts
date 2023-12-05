@@ -32,6 +32,8 @@ export class ProfileComponent implements OnInit {
         const userToUpdate = this.profileForm?.value as User;
         this.profileService.updateProfile(this.sessionService.userSession!.id, userToUpdate).subscribe({
             next: (userUpdated: User) => {
+                // L'appel au back s'est bien passé pour la mise à jour : on met les données de session à jour, on affiche un message
+                // dans le snackbar et on redirige vers la page des articles
                 this.onError = false;
                 this.sessionService.userSession!.name = userUpdated.name;
                 this.sessionService.userSession!.email = userUpdated.email;

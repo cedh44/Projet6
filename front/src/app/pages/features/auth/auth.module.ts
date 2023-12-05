@@ -16,9 +16,9 @@ import {MatButtonModule} from "@angular/material/button";
         CommonModule,
         HttpClientModule,   //Nécessaire pour les appels au backend
         MatSnackBarModule,  //Snack Bar pour affichage de messages type popup
-        ReactiveFormsModule,
-        MatIconModule,
-        MatButtonModule
+        ReactiveFormsModule,//Formulaire Reactive
+        MatIconModule,      //Pour le bouton retour
+        MatButtonModule     //Pour le bouton retour
     ]
 })
 export class AuthModule {

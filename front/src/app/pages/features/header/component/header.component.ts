@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
     return this.sessionService.$isLogged();
   }
 
+  //Boolean qui sert pour affichage du menu normal ou menu mobile (responsive)
   public showMenuMobile(): void{
     this.isShowMenuMobile = ! this.isShowMenuMobile;
   }

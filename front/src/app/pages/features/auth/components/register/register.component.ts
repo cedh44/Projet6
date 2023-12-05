@@ -13,6 +13,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class RegisterComponent implements OnInit {
 
     public onError = false;
+    //Mot de passe demandé : au moins 1 majuscule, 1 minuscule, 1 chiffre, 1 car. spécial
     private passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
     public form = this.formBuilder.group({
         name: [
