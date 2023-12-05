@@ -48,6 +48,10 @@ Vous pouvez utiliser l'utilisateur suivant pour vous connecter à l'application 
 - user : "toto"
 - password : "Test!123"
 
+## Postman
+
+Une collection postman est disponible dans resources/postman
+
 ## Technologies
 
 - Angular
@@ -56,6 +60,7 @@ Vous pouvez utiliser l'utilisateur suivant pour vous connecter à l'application 
 - Maven
 - MySql
 - Git
+- Postman
 
 ## Licence
 
