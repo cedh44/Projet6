@@ -13,7 +13,6 @@ export class SubjectListComponent implements OnInit {
 
     @Input() fromSubjectComponent!: boolean;
     public subjects$!: Observable<Subject[]>;
-    public subjectsNouvelleVersion$!: Observable<Subject[]>;
     public userId: number;
     public emptyListPostMessage: string = '';
 
@@ -25,14 +24,14 @@ export class SubjectListComponent implements OnInit {
     ngOnInit(): void {
         if (this.fromSubjectComponent) {
             //L'utilisateur est sur la page des thèmes, il faut afficher les thèmes où il n'est pas encore abonné
-            this.subjectsNouvelleVersion$ = this.subjectService.allNotSubscribedSubjects(this.userId);
-            this.subjectsNouvelleVersion$.subscribe(subjectListFromJson => {
+            this.subjects$ = this.subjectService.allNotSubscribedSubjects(this.userId);
+            this.subjects$.subscribe(subjectListFromJson => {
                 if (subjectListFromJson.length === 0) this.emptyListPostMessage = "Vous êtes abonné à tous les thèmes";
             })
         } else {
             //L'utilisateur est sur la page de profil, il faut afficher les thèmes auxquels il est abonné
-            this.subjectsNouvelleVersion$ = this.subjectService.allSubscribedSubjects(this.userId);
-            this.subjectsNouvelleVersion$.subscribe(subjectListFromJson => {
+            this.subjects$ = this.subjectService.allSubscribedSubjects(this.userId);
+            this.subjects$.subscribe(subjectListFromJson => {
                 if (subjectListFromJson.length === 0) this.emptyListPostMessage = "Vous n'êtes abonné à aucun thème";
             })
         }

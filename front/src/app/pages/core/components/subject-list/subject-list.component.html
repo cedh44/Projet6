@@ -1,6 +1,6 @@
 <section class="container-list-subject-section">
     <div class="container-list-subject-div">
-        <ng-container *ngFor="let subject of (subjectsNouvelleVersion$ | async)">
+        <ng-container *ngFor="let subject of (subjects$ | async)">
             <div class="div-subject">
                 <h2>
                     {{ subject.title }}
