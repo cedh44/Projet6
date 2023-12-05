@@ -37,14 +37,14 @@ export class PostListComponent implements OnInit {
         })
     }
 
+    //Tri des articles (du plus récent au moins récent et inversement si clic sur la flèche du tri)
     public sortBy(): void {
-        //Tri par défaut par ordre alphabétique sur le titre
-        this.postsList.sort((a, b) => {
-            return this.ascend ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
-        });
+        if(this.ascend) this.postsList.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        else this.postsList.sort((a,b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
         this.ascend = !this.ascend;
     }
 
+    //Navigation vers le détails de l'article
     public postDetail(postId: number): void {
         this.router.navigateByUrl(`post/postDetail/${postId}`);
     }
