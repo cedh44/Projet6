@@ -28,7 +28,7 @@ Se connecter en tant que root dans mysql, puis taper :
 - puis `npm install` pour installer les dépendances
 
 ### Back :
-- le projet a été développé sous Intellij et le user/password d'accès à la base de données ont été externalisé. Donc dans le fichier application properties (dans src/main/resources), vous trouverez les paramètres ${DB_USER} et ${DB_PASSWD}. Il faut donc les remplacer par les identifiants cités plus haut (mdduser / mddPass123!)
+- le projet a été développé sous Intellij et le couplet user/password d'accès à la base de données a été externalisé. Donc dans le fichier application properties (dans src/main/resources), vous trouverez les paramètres ${DB_USER} et ${DB_PASSWD}. Il faut les remplacer par les identifiants cités plus haut (mdduser / mddPass123!)
 - dans un terminal, depuis la racine du Projet6 : `cd back`
 - puis `mvn compile` afin de valider que la compilation s'effectue correctement, puis `mvn install`
 
