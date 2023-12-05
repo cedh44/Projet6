@@ -55,8 +55,8 @@ ALTER TABLE `COMMENTS` ADD FOREIGN KEY (`user_id`) REFERENCES `USERS` (`id`);
 
 -- quelques données par défaut
 INSERT INTO USERS (email, name, password) VALUES
-  ('toto@gmail.com', 'toto', '$2a$10$DBwf6qQCAzaForz8MoKpi.O3OtdSszfdsIvpilgwa9D7fbIw9Mm16'),
-  ('tutu@gmail.com', 'tutu', '$2a$10$re1orBkEUUifaRDg9hXFROKd50LzBDGK/AyQkpa/V2u8UBbKJo992');
+  ('toto@gmail.com', 'toto', '$2a$10$5tWULm252glaPOTy2vEBs.RaancLCESrGlLgAJGEgEqi3FsoXj9ne'),
+  ('tutu@gmail.com', 'tutu', '$2a$10$vZTBv1O93GahA0CKBGJzeOPmAYr1r0XdtmkghWZ9Pt8/woUmtJaVW');
 
 INSERT INTO SUBJECTS (title, content) VALUES
   ('Angular', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),

@@ -46,7 +46,7 @@ Se connecter en tant que root dans mysql, puis taper :
 
 Vous pouvez utiliser l'utilisateur suivant pour vous connecter à l'application :
 - user : "toto"
-- password : "test!123"
+- password : "Test!123"
 
 ## Technologies
 
