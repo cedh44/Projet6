@@ -1,8 +1,8 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {LoginRequest} from "../interfaces/loginRequest.interface";
+import {LoginRequest} from "../models/loginRequest.models";
 import {Observable} from "rxjs";
-import {RegisterRequest} from "../interfaces/registerRequest.interface";
+import {RegisterRequest} from "../models/registerRequest.models";
 import {UserSession} from "../../../core/models/userSession.models";
 import {MessageResponse} from "../../../core/models/messageResponse.models";
 

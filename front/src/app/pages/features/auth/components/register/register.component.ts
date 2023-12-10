@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
-import {RegisterRequest} from "../../interfaces/registerRequest.interface";
+import {RegisterRequest} from "../../models/registerRequest.models";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
