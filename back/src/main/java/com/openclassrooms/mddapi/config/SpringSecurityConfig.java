@@ -34,7 +34,6 @@ public class SpringSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable()) // If you are only creating a service that is used by non-browser clients, you will likely want to disable CSRF protection
-                //TODO : à mettre à jour lorsque le token sera ok
                 .authorizeHttpRequests(auth -> auth.antMatchers("/api/auth/register/**", "/api/auth/login/**").permitAll().anyRequest().authenticated())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt) //Enable Jwt-encoded bearer token support
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //stateless (pas de session, mais token)

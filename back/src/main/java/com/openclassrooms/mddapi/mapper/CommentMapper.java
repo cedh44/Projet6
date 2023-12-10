@@ -12,13 +12,8 @@ import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 @Component
-@Mapper(componentModel = "spring", imports = {Arrays.class, Collectors.class, Post.class, Comment.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring")
 public abstract class CommentMapper implements EntityMapperToDto<CommentDto, Comment> {
 
     @Autowired

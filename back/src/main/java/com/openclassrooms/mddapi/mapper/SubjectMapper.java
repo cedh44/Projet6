@@ -8,14 +8,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@Mapper(componentModel = "spring", uses = {UserMapper.class}, imports = {Arrays.class, Collectors.class, Subject.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring")
 public interface SubjectMapper extends EntityMapperToDto<SubjectDto, Subject> {
 
     @Mapping(target = "users", expression = "java(mapUsers(subject.getUsers()))")

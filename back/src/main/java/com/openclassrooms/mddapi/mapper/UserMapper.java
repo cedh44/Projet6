@@ -6,14 +6,8 @@ import com.openclassrooms.mddapi.models.User;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 @Component
-//TODO : supprimer les  uses = {} ?
-@Mapper(componentModel = "spring", imports = {Arrays.class, Collectors.class, User.class, Collections.class, Optional.class})
+@Mapper(componentModel = "spring")
 public interface UserMapper extends EntityMapperToDto<UserDto, User> {
 
 
