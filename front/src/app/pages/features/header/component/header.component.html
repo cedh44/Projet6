@@ -2,8 +2,7 @@
     <div class="div-mdd">
         <img class="img-mdd" src="/assets/logo_p6.png" alt="logo"/>
     </div>
-
-    <div class="div-nav-site" *ngIf="$isLogged() | async;">
+    <div class="div-nav-site">
         <a routerLink="/post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Articles</a>
         <a routerLink="/subject" routerLinkActive="active">Thèmes</a>
         <a routerLink="/profile" routerLinkActive="activeImg"><img class="img-profile" src="/assets/profile-button.png" alt="profile"></a>

@@ -9,7 +9,8 @@ import javax.validation.constraints.Size;
 
 @Entity //Correspond à une table de la BDD
 @Table(name = "USERS", uniqueConstraints = { //Correspond à la table Users
-        @UniqueConstraint(columnNames = "email") //L'email est unique
+        @UniqueConstraint(columnNames = "email"), //L'email est unique
+        @UniqueConstraint(columnNames = "name") //Le nom est unique
 })
 @Data //Génère entre autre les getters et les setters
 @EntityListeners(AuditingEntityListener.class) //Audit de l'entity avec AuditingEntityListener par défaut
